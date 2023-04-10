@@ -2,7 +2,7 @@
 <package format="3">
   <name>segwayrmp</name>
   <version>0.0.0</version>
-  <description>The segwayrmp package</description>
+  <description>The segwayrmp ROS 2 package</description>
 
   <maintainer email="adeebabbas@gmail.com">adeebabbas</maintainer>
 
@@ -10,7 +10,11 @@
 
   <depend>rclcpp</depend>
   <depend>rclpy</depend>
+  <depend>rclcpp_action</depend>
   <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
   <depend>segway_msgs</depend>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

@@ -1,5 +1,5 @@
 #include "segwayrmp/robot.h"
-#include <sensor_msgs/Imu.h>
+#include <sensor_msgs/msg/imu.hpp>
 #include "Ge_encoder_odometry.h"
 #if 1
 #define ODOM_BY_CHASSIS

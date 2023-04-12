@@ -136,8 +136,8 @@ void Ge_encoder_odometry::estimate(SensorData *rawdata) {
   m_prev_left_count = lefttick;
   m_prev_right_count = righttick;
   if (m_current_t_read - m_prev_t_read > 500000) {
-    node->get_logger().warn("gap is too big, current_time("
-                    << m_current_t_read << "), prev_time(" << m_prev_t_read);
+    // node->get_logger().warn("gap is too big, current_time("
+    //                 << m_current_t_read << "), prev_time(" << m_prev_t_read);
   }
   m_prev_t_read = m_current_t_read;
   if (m_if_record) {
@@ -152,7 +152,7 @@ void Ge_encoder_odometry::estimate(SensorData *rawdata) {
                     << std::to_string(omega_estimate) << " "
                     << std::to_string(delta_theta) << std::endl;
     } else {
-      ROS_WARN("the Record file is not open!");
+      // ROS_WARN("the Record file is not open!");
     }
   }
 }
@@ -164,9 +164,9 @@ void Ge_encoder_odometry::init() {
   m_count_to_right_rot_ = m_distance_per_count_ / m_wheels_distance;
   m_count_to_left_rot_ = m_distance_per_count_ / m_wheels_distance;
   rclcpp::Node pnh = rclcpp::Node("record");
-  pnh.param<bool>("if_record", m_if_record, false);
-  pnh.param<std::string>("record_file_path", m_record_file_path,
-                         "/home/linaro/catkin_ws/");
+  pnh.get_parameter_or("if_record", m_if_record, false);
+  // pnh.param<std::string>("record_file_path", m_record_file_path,
+                        //  "/home/linaro/catkin_ws/");
   if (m_if_record) {
     std::string cmd_str_mk;
     time_t t = time(NULL);
@@ -179,7 +179,7 @@ void Ge_encoder_odometry::init() {
     cmd_str_mk = "mkdir -p \"" + slipTest_data_record_dir + "\"";
     bool system_flag = system(cmd_str_mk.c_str());
     std::string file_path = slipTest_data_record_dir + "pose.txt";
-    node->get_logger().info("file_path: " << file_path);
+    // pnh->get_logger().info("file_path: " << file_path);
     m_record_file.open(file_path.data(), std::ofstream::out);
   }
 }

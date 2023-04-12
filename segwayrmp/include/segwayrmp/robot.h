@@ -42,15 +42,16 @@
 #define IAP_STATE_COMPLETE  3
 #define IAP_STATE_FAIL      4
 #define IAP_STATE_ABORT     5
-typedef actionlib::SimpleActionServer<segway_msgs::RosSetIapCmdAction> iapActionServer;
-typedef actionlib::SimpleActionClient<segway_msgs::RosSetIapCmdAction> iapActionClient;
+using iapActionServer = rclcpp_action::Server<segway_msgs::action::RosSetIapCmd>;
+using iapActionClient = rclcpp_action::Client<segway_msgs::action::RosSetIapCmd>;
+
 namespace robot
 {
 
     class Chassis : public rclcpp::Node
     {
         public:
-            Chassis();
+            Chassis(const std::shared_ptr<rclcpp::Node>& node);
             static void chassis_send_event_callback(int event_no);
         private:
             void cmd_vel_callback(const geometry_msgs::msg::Twist::SharedPtr vel);

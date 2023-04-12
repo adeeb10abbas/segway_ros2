@@ -33,7 +33,7 @@ uint64_t Odom_TimeStamp;
 uint8_t Odom_update;
 
 int chassis_event_id = 0;
-ros::ServiceClient chassis_send_event_srv_client;
+rclcpp::Client<segway_msgs::srv::ChassisSendEvent>::SharedPtr chassis_send_event_srv_client;
 
 static void PubData(StampedBasicFrame *frame)
 {
@@ -114,7 +114,7 @@ static void EvnetPubData(int event_no)
 }
 
 //The timestamp from the upper computer is the count of microseconds，
-ros::Time timestamp2rostime(int64_t timestamp)
+rclcpp::Time timestamp2rostime(int64_t timestamp)
 {
     //    std::string suanz = std::to_string(timestamp);
     //    std::string sec_string = suanz.substr(0,10);
@@ -122,10 +122,10 @@ ros::Time timestamp2rostime(int64_t timestamp)
     //    while(nsec_string.length() < 9){
     //        nsec_string += "0";
     //    }
-    //    return ros::Time(std::stoi(sec_string),std::stoi(nsec_string));
+    //    return rclcpp::time(std::stoi(sec_string),std::stoi(nsec_string));
     uint32_t sec_ = timestamp / 1000000;
     uint32_t nsec_ = (timestamp % 1000000) * 1000;
-    return ros::Time(sec_, nsec_);
+    return rclcpp::Time(sec_, nsec_);
 }
 
 double getOrientationX()
@@ -192,32 +192,33 @@ double getOrientationW()
     return (fCosHRoll * fCosHPitch * fCosHYaw + fSinHRoll * fSinHPitch * fSinHYaw);
 }
 
-void ros_set_iap_cmd_callback(const segway_msgs::ros_set_iap_cmdGoalConstPtr &ros_set_iap_cmd_goal, iapActionServer *as)
+void ros_set_iap_cmd_callback(
+  const std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd>> goal_handle)
 {
     switch (ros_set_iap_cmd_goal->board_index_for_iap)
     {
         case 1:
-            ROS_INFO("iap for central board");
+            // ROS_INFO("iap for central board");
             iapCentralBoard();
             break;
         case 2: 
-            ROS_INFO("IAP for the front wheel board");
+            // ROS_INFO("IAP for the front wheel board");
             iapMotorBoard(motor_front);
             break;
         case 3: 
-            ROS_INFO("IAP for the rear wheel board");
+            // ROS_INFO("IAP for the rear wheel board");
             iapMotorBoard(motor_rear);
             break;
         case 4:
-            ROS_INFO("IAP for the brake board");
+            // ROS_INFO("IAP for the brake board");
             iapBrakeBoard();
             break;
         case 5:
-            ROS_INFO("IAP for all board: brake; motor_rear; motor_front; central");
+            // ROS_INFO("IAP for all board: brake; motor_rear; motor_front; central");
             checkAndIapAllFw();
             break;
         default: 
-            ROS_INFO("ros_set_iap_cmd_goal->board_index_for_iap[%d] value out of the normal rande[1,2,3,4]", ros_set_iap_cmd_goal->board_index_for_iap);
+            // ROS_INFO("ros_set_iap_cmd_goal->board_index_for_iap[%d] value out of the normal rande[1,2,3,4]", ros_set_iap_cmd_goal->board_index_for_iap);
             break;
     }
     ros::Duration(1).sleep();
@@ -228,7 +229,7 @@ void ros_set_iap_cmd_callback(const segway_msgs::ros_set_iap_cmdGoalConstPtr &ro
     {
         if (as->isPreemptRequested() || !ros::ok())
         {
-            ROS_INFO("ros_set_iap_cmd_action: Preempted");
+            // ROS_INFO("ros_set_iap_cmd_action: Preempted");
             as->setPreempted();
             setHostIapCanceled();
             break;
@@ -276,7 +277,7 @@ Chassis::Chassis(const ros::NodeHandle &nh) : nh_(nh)
     Odom_pub = nh_.advertise<nav_msgs::Odometry>("odom", 1);
     Imu_pub = nh_.advertise<sensor_msgs::Imu>("imu", 1);
 
-    chassis_send_event_srv_client = nh_.serviceClient<segway_msgs::chassis_send_event>("chassis_send_event_srv");
+    chassis_send_event_srv_client = nh_->create_client<segway_msgs::srv::ChassisSendEvent>("chassis_send_event_srv");
     
     ros_enable_chassis_rotate_cmd_srv_server = nh_.advertiseService("ros_enable_chassis_rotate_cmd_srv", &Chassis::ros_enable_chassis_rotate_cmd_callback, this);
     ros_get_chassis_rotate_switch_cmd_srv_server = nh_.advertiseService("ros_get_chassis_rotate_switch_cmd_srv", &Chassis::ros_get_chassis_rotate_switch_cmd_callback, this);
@@ -300,7 +301,7 @@ Chassis::Chassis(const ros::NodeHandle &nh) : nh_(nh)
 
     iapActionServer ros_set_iap_cmd_server(nh_, "ros_set_iap_cmd_action", boost::bind(&ros_set_iap_cmd_callback, _1, &ros_set_iap_cmd_server), false);
     ros_set_iap_cmd_server.start();
-    ROS_INFO("ros_set_iap_cmd_action started");
+    // ROS_INFO("ros_set_iap_cmd_action started");
     update_timer_ = nh_.createTimer(ros::Duration(0.001), &Chassis::TimeUpdate1000Hz, this);
     update_timer2_ = nh_.createTimer(ros::Duration(1), &Chassis::TimeUpdate1Hz, this);
     ros::spin();
@@ -321,12 +322,12 @@ bool Chassis::ros_enable_chassis_rotate_cmd_callback(segway_msgs::ros_enable_cha
     if (req.ros_enable_chassis_rotate_cmd == false)
     {
         res.chassis_enable_rotate_result = enable_rotate_switch(0);
-        ROS_INFO("chassis_enable_rotate_result disable:%d ", res.chassis_enable_rotate_result); 
+        // ROS_INFO("chassis_enable_rotate_result disable:%d ", res.chassis_enable_rotate_result); 
     }
     else if (req.ros_enable_chassis_rotate_cmd == true)
     {
         res.chassis_enable_rotate_result = enable_rotate_switch(1);
-        ROS_INFO("chassis_enable_rotate_result enable:%d ", res.chassis_enable_rotate_result); 
+        // ROS_INFO("chassis_enable_rotate_result enable:%d ", res.chassis_enable_rotate_result); 
     }
     else
     {
@@ -342,7 +343,7 @@ bool Chassis::ros_get_chassis_rotate_switch_cmd_callback(segway_msgs::ros_get_ch
         return false;
     }
     res.chassis_rotate_state = get_rotate_switch_stat();
-    ROS_INFO("chassis_rotate_state:%d ", res.chassis_rotate_state);
+    // ROS_INFO("chassis_rotate_state:%d ", res.chassis_rotate_state);
     return true;
 }
             
@@ -353,7 +354,7 @@ bool Chassis::ros_clear_chassis_error_code_cmd_callback(segway_msgs::ros_clear_c
         return false;
     }
     res.clear_chassis_error_code_result = clear_chassis_error_code();
-    ROS_INFO("clear_chassis_error_code:%d ", res.clear_chassis_error_code_result);
+    // ROS_INFO("clear_chassis_error_code:%d ", res.clear_chassis_error_code_result);
     return true;
 }
 bool Chassis::ros_get_load_param_cmd_callback(segway_msgs::ros_get_load_param_cmd::Request &req, segway_msgs::ros_get_load_param_cmd::Response &res)
@@ -363,7 +364,7 @@ bool Chassis::ros_get_load_param_cmd_callback(segway_msgs::ros_get_load_param_cm
         return false;
     }
     res.get_load_param = get_chassis_load_state();
-    ROS_INFO("get_load_param:%d ", res.get_load_param);
+    // ROS_INFO("get_load_param:%d ", res.get_load_param);
     return true;
 }
 bool Chassis::ros_get_chassis_SN_cmd_callback(segway_msgs::ros_get_chassis_SN_cmd::Request &req, segway_msgs::ros_get_chassis_SN_cmd::Response &res)
@@ -376,7 +377,7 @@ bool Chassis::ros_get_chassis_SN_cmd_callback(segway_msgs::ros_get_chassis_SN_cm
     char chassis_sn[30];
     if (get_chassis_central_SN(chassis_sn)) {
         res.chassis_SN = chassis_sn;
-        ROS_INFO("chassis_SN:%s ", res.chassis_SN.c_str());
+        // ROS_INFO("chassis_SN:%s ", res.chassis_SN.c_str());
         return true;
     }
     else {
@@ -394,8 +395,8 @@ bool Chassis::ros_get_sw_version_cmd_callback(segway_msgs::ros_get_sw_version_cm
     res.host_pantch_version = get_host_patch_version();
     res.central_version = get_chassis_central_version();
     res.motor_version = get_chassis_motor_version();
-    ROS_INFO("req.ros_get_sw_version_cmd:%d", req.ros_get_sw_version_cmd);
-    ROS_INFO("res.host_version: %d, res.host_pantch_version:%d, res.central_version: %d, res.motor_version: %d ", res.host_version, res.host_pantch_version, res.central_version, res.motor_version);
+    // ROS_INFO("req.ros_get_sw_version_cmd:%d", req.ros_get_sw_version_cmd);
+    // ROS_INFO("res.host_version: %d, res.host_pantch_version:%d, res.central_version: %d, res.motor_version: %d ", res.host_version, res.host_pantch_version, res.central_version, res.motor_version);
     return true;
 }
 bool Chassis::ros_get_vel_max_feedback_cmd_callback(segway_msgs::ros_get_vel_max_feedback_cmd::Request &req, segway_msgs::ros_get_vel_max_feedback_cmd::Response &res)
@@ -407,8 +408,8 @@ bool Chassis::ros_get_vel_max_feedback_cmd_callback(segway_msgs::ros_get_vel_max
     res.forward_max_vel_fb = get_line_forward_max_vel_fb();
     res.backward_max_vel_fb = get_line_backward_max_vel_fb();
     res.angular_max_vel_fb = get_angular_max_vel_fb();
-    ROS_INFO("req.ros_get_vel_max_fb_cmd:%d ", req.ros_get_vel_max_fb_cmd);
-    ROS_INFO("res.forward_max_vel_fb： %d, res.backward_max_vel_fb： %d, res.angular_max_vel_fb： %d ", res.forward_max_vel_fb, res.backward_max_vel_fb, res.angular_max_vel_fb);
+    // ROS_INFO("req.ros_get_vel_max_fb_cmd:%d ", req.ros_get_vel_max_fb_cmd);
+    // ROS_INFO("res.forward_max_vel_fb： %d, res.backward_max_vel_fb： %d, res.angular_max_vel_fb： %d ", res.forward_max_vel_fb, res.backward_max_vel_fb, res.angular_max_vel_fb);
     return true;
 }
 bool Chassis::ros_set_chassis_buzzer_cmd_callback(segway_msgs::ros_set_chassis_buzzer_cmd::Request &req, segway_msgs::ros_set_chassis_buzzer_cmd::Response &res)
@@ -422,7 +423,7 @@ bool Chassis::ros_set_chassis_buzzer_cmd_callback(segway_msgs::ros_set_chassis_b
     {
         ret = set_chassis_buzzer(1);
     }
-    ROS_INFO("req.ros_set_chassis_buzzer_cmd:%d, set_chassis_buzzer():%d ", req.ros_set_chassis_buzzer_cmd, ret);
+    // ROS_INFO("req.ros_set_chassis_buzzer_cmd:%d, set_chassis_buzzer():%d ", req.ros_set_chassis_buzzer_cmd, ret);
 
     res.set_buzzer_result = ret;
     return true;
@@ -438,7 +439,7 @@ bool Chassis::ros_set_chassis_enable_cmd_callback(segway_msgs::ros_set_chassis_e
     {
         ret = set_enable_ctrl(1);
     }
-    ROS_INFO("req.ros_set_chassis_enable_cmd:%d, set_enable_ctrl():%d ", req.ros_set_chassis_enable_cmd, ret);
+    // ROS_INFO("req.ros_set_chassis_enable_cmd:%d, set_enable_ctrl():%d ", req.ros_set_chassis_enable_cmd, ret);
 
     res.chassis_set_chassis_enable_result = ret;
     return true;
@@ -450,7 +451,7 @@ bool Chassis::ros_set_chassis_poweroff_cmd_callback(segway_msgs::ros_set_chassis
         return false;
     }
     uint8_t ret = set_chassis_poweroff();
-    ROS_INFO("req.ros_set_chassis_poweroff_cmd:%d, set_chassis_poweroff():%d ", req.ros_set_chassis_poweroff_cmd, ret);
+    // ROS_INFO("req.ros_set_chassis_poweroff_cmd:%d, set_chassis_poweroff():%d ", req.ros_set_chassis_poweroff_cmd, ret);
 
     res.chassis_set_poweroff_result = ret;
     return true;

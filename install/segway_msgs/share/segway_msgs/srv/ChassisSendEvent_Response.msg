@@ -1,2 +1,0 @@
-
-bool   ros_isreceived

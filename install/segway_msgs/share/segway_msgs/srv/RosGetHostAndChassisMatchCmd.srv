@@ -1,3 +1,0 @@
-# 
----
-uint8   is_matchedwith_firmware    #0:matched; 1:chassis version older; 2:host version older; 0xffff:get chassis versin overtime

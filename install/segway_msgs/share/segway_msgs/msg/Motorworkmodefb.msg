@@ -1,1 +1,0 @@
-uint16 motor_work_mode		#0: no output torque 1: output torque

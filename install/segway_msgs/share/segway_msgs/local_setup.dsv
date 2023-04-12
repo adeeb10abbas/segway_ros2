@@ -1,4 +1,0 @@
-source;share/segway_msgs/environment/ament_prefix_path.sh
-source;share/segway_msgs/environment/library_path.sh
-source;share/segway_msgs/environment/path.sh
-source;share/segway_msgs/environment/pythonpath.sh

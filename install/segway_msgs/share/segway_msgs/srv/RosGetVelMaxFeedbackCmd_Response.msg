@@ -1,4 +1,0 @@
-
-uint16  forward_maxvel_fb   
-uint16  backward_maxvel_fb    
-uint16  angular_maxvel_fb

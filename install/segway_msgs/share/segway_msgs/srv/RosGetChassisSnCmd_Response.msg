@@ -1,2 +1,0 @@
-
-string  chassis_sn 

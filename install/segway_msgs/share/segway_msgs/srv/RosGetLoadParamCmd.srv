@@ -1,3 +1,0 @@
-bool   ros_getload_param 
----
-int16  get_loadparam  #0:no_load, 1: full_load

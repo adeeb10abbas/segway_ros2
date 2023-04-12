@@ -14,8 +14,8 @@ cp "$input_file" "$output_file"
 
 # Apply changes to the output file
 sed -i 's/#include <ros\/ros.h>/#include <rclcpp\/rclcpp.hpp>/g' "$output_file"
-sed -i 's/ROS_WARN_STREAM/rclcpp::get_logger()->warn/g' "$output_file"
-sed -i 's/ROS_INFO_STREAM/rclcpp::get_logger()->info/g' "$output_file"
+sed -i 's/ROS_WARN_STREAM/node->get_logger().warn/g' "$output_file"
+sed -i 's/ROS_INFO_STREAM/node->get_logger().info/g' "$output_file"
 sed -i 's/ros::NodeHandle/rclcpp::Node/g' "$output_file"
 sed -i 's/ros::Time/rclcpp::Time/g' "$output_file"
 

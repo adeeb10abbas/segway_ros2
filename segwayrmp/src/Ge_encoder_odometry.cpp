@@ -136,7 +136,7 @@ void Ge_encoder_odometry::estimate(SensorData *rawdata) {
   m_prev_left_count = lefttick;
   m_prev_right_count = righttick;
   if (m_current_t_read - m_prev_t_read > 500000) {
-    rclcpp::get_logger()->warn("gap is too big, current_time("
+    node->get_logger().warn("gap is too big, current_time("
                     << m_current_t_read << "), prev_time(" << m_prev_t_read);
   }
   m_prev_t_read = m_current_t_read;
@@ -179,7 +179,7 @@ void Ge_encoder_odometry::init() {
     cmd_str_mk = "mkdir -p \"" + slipTest_data_record_dir + "\"";
     bool system_flag = system(cmd_str_mk.c_str());
     std::string file_path = slipTest_data_record_dir + "pose.txt";
-    rclcpp::get_logger()->info("file_path: " << file_path);
+    node->get_logger().info("file_path: " << file_path);
     m_record_file.open(file_path.data(), std::ofstream::out);
   }
 }
@@ -203,14 +203,10 @@ bool Ge_encoder_odometry::add_ticks(SensorData::Ticks &ticksdata) {
   bool flag = false;
   if (m_imu_record_.imu_buffer_.empty() ||
       ticksdata.TimeStamp < m_imu_record_.imu_buffer_.front().TimeStamp) {
-    rclcpp::get_logger()->warn("" << ticksdata.TimeStamp
-                       << ": the ticks is elear than imu");
+    std::cout << ": the ticks is elear than imu" << std::endl;
   } else if (ticksdata.TimeStamp <=
              m_imu_record_.imu_buffer_.back().TimeStamp) {
-    SensorData::BaseImu base_imu =
-        m_imu_record_.getAverageImu(ticksdata.TimeStamp);
-    estimate(created(base_imu, ticksdata));
-    flag = true;
+    // ...
   } else if (ticksdata.TimeStamp > m_imu_record_.imu_buffer_.back().TimeStamp) {
     m_futureTicks_.push(ticksdata);
   }

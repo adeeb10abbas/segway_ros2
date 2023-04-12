@@ -195,7 +195,10 @@ double getOrientationW()
 void ros_set_iap_cmd_callback(
   const std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd>> goal_handle)
 {
-    switch (ros_set_iap_cmd_goal->board_index_for_iap)
+  auto ros_set_iap_cmd_goal = goal_handle->get_goal();
+
+  // Now you can access the fields from the goal message
+  switch (ros_set_iap_cmd_goal->board_index_for_iap) {
     {
         case 1:
             // ROS_INFO("iap for central board");
@@ -221,13 +224,13 @@ void ros_set_iap_cmd_callback(
             // ROS_INFO("ros_set_iap_cmd_goal->board_index_for_iap[%d] value out of the normal rande[1,2,3,4]", ros_set_iap_cmd_goal->board_index_for_iap);
             break;
     }
-    ros::Duration(1).sleep();
-    ros::Rate loop_time(2);
-    segway_msgs::ros_set_iap_cmdFeedback iap_fb;
-    segway_msgs::ros_set_iap_cmdResult   iap_ret;
+    rclcpp::sleep_for(std::chrono::seconds(1));
+    rclcpp::Rate loop_time(2);
+    segway_msgs::action::RosSetIapCmd::Feedback iap_fb;
+    segway_msgs::action::RosSetIapCmd::Result iap_ret;
     while (!isHostIapOver())
     {
-        if (as->isPreemptRequested() || !ros::ok())
+        if (as->isPreemptRequested() || !rclcpp::ok())
         {
             // ROS_INFO("ros_set_iap_cmd_action: Preempted");
             as->setPreempted();
@@ -251,10 +254,10 @@ void ros_set_iap_cmd_callback(
     else
     {
         as->setAborted(iap_ret);
+        }
     }
 }
-namespace robot
-{
+namespace robot {
 
 Chassis::Chassis(const ros::NodeHandle &nh) : nh_(nh)
 {

@@ -1,4 +1,5 @@
 #include "segwayrmp/robot.h"
+#include <functional>
 #include <sensor_msgs/msg/imu.hpp>
 #include "Ge_encoder_odometry.h"
 #if 1
@@ -259,7 +260,7 @@ void ros_set_iap_cmd_callback(
 }
 namespace robot {
 
-Chassis::Chassis(const rclcpp::Node::SharedPtr &nh) : nh_(nh) 
+Chassis::Chassis(const rclcpp::Node::SharedPtr nh) : nh_(nh) 
 {
     timestamp_data.on_new_data = PubData;
     aprctrl_datastamped_jni_register(&timestamp_data);
@@ -288,62 +289,47 @@ Chassis::Chassis(const rclcpp::Node::SharedPtr &nh) : nh_(nh)
     chassis_send_event_srv = nh_->create_client<segway_msgs::srv::ChassisSendEvent>("chassis_send_event_srv");
 
     // Create service servers
-    ros_enable_chassis_rotate_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosEnableChassisRotateCmd>("ros_enable_chassis_rotate_cmd_srv", std::bind(&Chassis::ros_enable_chassis_rotate_cmd_callback, this, _1, _2));
-    ros_get_chassis_rotate_switch_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetChassisRotateSwitchCmd>("ros_get_chassis_rotate_switch_cmd_srv", std::bind(&Chassis::ros_get_chassis_rotate_switch_cmd_callback, this, _1, _2));
-    ros_clear_chassis_error_code_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosClearChassisErrorCodeCmd>("ros_clear_chassis_error_code_cmd_srv", std::bind(&Chassis::ros_clear_chassis_error_code_cmd_callback, this, _1, _2));
-    ros_get_chassis_SN_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetChassisSnCmd>("ros_get_chassis_SN_cmd_srv", std::bind(&Chassis::ros_get_chassis_SN_cmd_callback, this, _1, _2));
-    ros_get_load_param_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetLoadParamCmd>("ros_get_load_param_cmd_srv", std::bind(&Chassis::ros_get_load_param_cmd_callback, this, _1, _2));
-    ros_get_sw_version_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetSwVersionCmd>("ros_get_sw_version_cmd_srv", std::bind(&Chassis::ros_get_sw_version_cmd_callback, this, _1, _2));
-    ros_get_vel_max_feedback_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetVelMaxFeedbackCmd>("ros_get_vel_max_feedback_cmd_srv", std::bind(&Chassis::ros_get_vel_max_feedback_cmd_callback, this, _1, _2));
-    ros_set_chassis_buzzer_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosSetChassisBuzzerCmd>("ros_set_chassis_buzzer_cmd_srv", std::bind(&Chassis::ros_set_chassis_buzzer_cmd_callback, this, _1, _2));
-    ros_set_chassis_enable_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosSetChassisEnableCmd>("ros_set_chassis_enable_cmd_srv", std::bind(&Chassis::ros_set_chassis_enable_cmd_callback, this, _1, _2));
-    ros_set_chassis_poweroff_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosSetChassisPoweroffCmd>("ros_set_chassis_poweroff_cmd_srv", std::bind(&Chassis::ros_set_chassis_poweroff_cmd_callback, this, _1, _2));
-    ros_set_load_param_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosSetLoadParamCmd>("ros_set_load_param_cmd_srv", std::bind(&Chassis::ros_set_load_param_cmd_callback, this, _1, _2));
+    ros_enable_chassis_rotate_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosEnableChassisRotateCmd>(
+    "ros_enable_chassis_rotate_cmd_srv",
+    [this](const std::shared_ptr<segway_msgs::srv::RosEnableChassisRotateCmd::Request> req,
+           std::shared_ptr<segway_msgs::srv::RosEnableChassisRotateCmd::Response> res) {
+        return this->ros_enable_chassis_rotate_cmd_callback(req, res);
+    });
+    ros_get_chassis_rotate_switch_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetChassisRotateSwitchCmd>("ros_get_chassis_rotate_switch_cmd_srv", std::bind(&Chassis::ros_get_chassis_rotate_switch_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_clear_chassis_error_code_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosClearChassisErrorCodeCmd>("ros_clear_chassis_error_code_cmd_srv", std::bind(&Chassis::ros_clear_chassis_error_code_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_get_chassis_SN_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetChassisSnCmd>("ros_get_chassis_SN_cmd_srv", std::bind(&Chassis::ros_get_chassis_SN_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_get_load_param_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetLoadParamCmd>("ros_get_load_param_cmd_srv", std::bind(&Chassis::ros_get_load_param_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_get_sw_version_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetSwVersionCmd>("ros_get_sw_version_cmd_srv", std::bind(&Chassis::ros_get_sw_version_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_get_vel_max_feedback_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetVelMaxFeedbackCmd>("ros_get_vel_max_feedback_cmd_srv", std::bind(&Chassis::ros_get_vel_max_feedback_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_set_chassis_buzzer_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosSetChassisBuzzerCmd>("ros_set_chassis_buzzer_cmd_srv", std::bind(&Chassis::ros_set_chassis_buzzer_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_set_chassis_enable_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosSetChassisEnableCmd>("ros_set_chassis_enable_cmd_srv", std::bind(&Chassis::ros_set_chassis_enable_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_set_chassis_poweroff_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosSetChassisPoweroffCmd>("ros_set_chassis_poweroff_cmd_srv", std::bind(&Chassis::ros_set_chassis_poweroff_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_set_load_param_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosSetLoadParamCmd>("ros_set_load_param_cmd_srv", std::bind(&Chassis::ros_set_load_param_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
     ros_set_vel_max_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosSetVelMaxCmd>("ros_set_vel_max_cmd_srv", std::bind(&Chassis::ros_set_vel_max_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));    
-    ros_reset_host_power_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosResetHostPowerCmd>("ros_reset_host_power_cmd_srv", std::bind(&Chassis::ros_reset_host_power_cmd_callback, this, _1, _2));
-    ros_start_chassis_left_rotate_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosStartChassisLeftRotateCmd>("ros_start_chassis_left_rotate_cmd_srv", std::bind(&Chassis::ros_start_chassis_left_rotate_cmd_callback, this, _1, _2));
-    ros_start_chassis_right_rotate_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosStartChassisRightRotateCmd>("ros_start_chassis_right_rotate_cmd_srv", std::bind(&Chassis::ros_start_chassis_right_rotate_cmd_callback, this, _1, _2));
-    ros_stop_chassis_rotate_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosStopChassisRotateCmd>("ros_stop_chassis_rotate_cmd_srv", std::bind(&Chassis::ros_stop_chassis_rotate_cmd_callback, this, _1, _2));
-    ros_get_rotate_function_cfg_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetRotateFunctionCfgCmd>("ros_get_rotate_function_cfg_cmd_srv", std::bind(&Chassis::ros_get_rotate_function_cfg_cmd_callback, this, _1, _2));
-    ros_set_cfg_rotate_function_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosSetCfgRotateFunctionCmd>("ros_set_cfg_rotate_function_cmd_srv", std::bind(&Chassis::ros_set_cfg_rotate_function_cmd_callback, this, _1, _2));
-    ros_get_host_and_chassis_match_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetHostAndChassisMatchCmd>("ros_get_host_and_chassis_match_cmd_srv", std::bind(&Chassis::ros_get_host_and_chassis_match_cmd_callback, this, _1, _2));
+    ros_reset_host_power_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosResetHostPowerCmd>("ros_reset_host_power_cmd_srv", std::bind(&Chassis::ros_reset_host_power_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_start_chassis_left_rotate_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosStartChassisLeftRotateCmd>("ros_start_chassis_left_rotate_cmd_srv", std::bind(&Chassis::ros_start_chassis_left_rotate_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_start_chassis_right_rotate_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosStartChassisRightRotateCmd>("ros_start_chassis_right_rotate_cmd_srv", std::bind(&Chassis::ros_start_chassis_right_rotate_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_stop_chassis_rotate_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosStopChassisRotateCmd>("ros_stop_chassis_rotate_cmd_srv", std::bind(&Chassis::ros_stop_chassis_rotate_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_get_rotate_function_cfg_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetRotateFunctionCfgCmd>("ros_get_rotate_function_cfg_cmd_srv", std::bind(&Chassis::ros_get_rotate_function_cfg_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_set_cfg_rotate_function_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosSetCfgRotateFunctionCmd>("ros_set_cfg_rotate_function_cmd_srv", std::bind(&Chassis::ros_set_cfg_rotate_function_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
+    ros_get_host_and_chassis_match_cmd_srv_server = nh_->create_service<segway_msgs::srv::RosGetHostAndChassisMatchCmd>("ros_get_host_and_chassis_match_cmd_srv", std::bind(&Chassis::ros_get_host_and_chassis_match_cmd_callback, this, std::placeholders::_1, std::placeholders::_2));
 
-    auto goal_callback =
-    [this](const rclcpp_action::GoalUUID &,
-            std::shared_ptr<const segway_msgs::action::RosSetIapCmd::Goal>) {
-        // Your goal callback implementation here (if needed)
-        return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
-    };
-
-    auto cancel_callback =
-    [this](std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd>>) {
-        // Your cancel callback implementation here (if needed)
-        return rclcpp_action::CancelResponse::ACCEPT;
-    };
-
-    auto feedback_callback =
-    [this](std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd>>,
-            const std::unique_ptr<segway_msgs::action::RosSetIapCmd::Feedback> &) {
-        // Your feedback callbacfk implementation here (if needed)
-    };
-
-    auto execute_callback =
-    [this](const std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd>> goal_handle) {
-        // Your callback implementation here
-        ros_set_iap_cmd_callback(goal_handle);
-    };
-
-    ros_set_iap_cmd_callback = nh_->create_server<segway_msgs::action::RosSetIapCmd>(
+    auto iapActionServer = rclcpp_action::create_server<iapCmd>(
+    nh_,
     "ros_set_iap_cmd_action",
-    std::bind(&Chassis::handle_goal, this, std::placeholders::_1, std::placeholders::_2),
-    std::bind(&Chassis::handle_cancel, this, std::placeholders::_1),
-    std::bind(&Chassis::handle_accepted, this, std::placeholders::_1),
-    std::bind(&Chassis::execute_callback, this, std::placeholders::_1));
+    std::bind(&Chassis::handle_iapCmdGoal, this, std::placeholders::_1, std::placeholders::_2),
+    std::bind(&Chassis::handle_iapCmdCancel, this, std::placeholders::_1),
+    std::bind(&Chassis::handle_iapCmdAccepted, this, std::placeholders::_1));
+
+    auto update_duration_1000Hz = std::chrono::duration<double>(0.001);
+    auto update_duration_1Hz = std::chrono::duration<double>(1);
 
     // ROS_INFO("ros_set_iap_cmd_action started");
-    update_timer_ = nh_.createTimer(ros::Duration(0.001), &Chassis::TimeUpdate1000Hz, this);
-    update_timer2_ = nh_.createTimer(ros::Duration(1), &Chassis::TimeUpdate1Hz, this);
-    ros::spin();
+    update_timer_ = nh_->create_wall_timer(std::chrono::milliseconds(1), std::bind(&Chassis::TimeUpdate1000Hz, this));
+    update_timer2_ = nh_->create_wall_timer(std::chrono::seconds(1), std::bind(&Chassis::TimeUpdate1Hz, this));
+
+    rclcpp::spin(nh_);
+
     }
 
 /* code */
@@ -356,8 +342,7 @@ void Chassis::cmd_vel_callback(const geometry_msgs::msg::Twist::SharedPtr cmd_in
 
     //ROS_INFO("angular_temp:%f  rad/s   linear_temp:%f  m/s", angular_vel_,linear_vel_);
 }
-bool Chassis::ros_enable_chassis_rotate_cmd_callback(segway_msgs::ros_enable_chassis_rotate_cmd::Request &req, segway_msgs::ros_enable_chassis_rotate_cmd::Response &res)
-{
+bool Chassis::ros_enable_chassis_rotate_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosEnableChassisRotateCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosEnableChassisRotateCmd::Response> res){
     if (req.ros_enable_chassis_rotate_cmd == false)
     {
         res.chassis_enable_rotate_result = enable_rotate_switch(0);
@@ -375,7 +360,7 @@ bool Chassis::ros_enable_chassis_rotate_cmd_callback(segway_msgs::ros_enable_cha
     
     return true;
 }
-bool Chassis::ros_get_chassis_rotate_switch_cmd_callback(segway_msgs::ros_get_chassis_rotate_switch_cmd::Request &req, segway_msgs::ros_get_chassis_rotate_switch_cmd::Response &res)
+bool Chassis::ros_get_chassis_rotate_switch_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetChassisRotateSwitchCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetChassisRotateSwitchCmd::Response> res);
 {
     if (req.ros_get_chassis_rotate_cmd == false)
     {
@@ -386,7 +371,7 @@ bool Chassis::ros_get_chassis_rotate_switch_cmd_callback(segway_msgs::ros_get_ch
     return true;
 }
             
-bool Chassis::ros_clear_chassis_error_code_cmd_callback(segway_msgs::ros_clear_chassis_error_code_cmd::Request &req, segway_msgs::ros_clear_chassis_error_code_cmd::Response &res)
+bool Chassis::ros_clear_chassis_error_code_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosClearChassisErrorCodeCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosClearChassisErrorCodeCmd::Response> res)
 {
     if (req.clear_chassis_error_code_cmd == false)
     {
@@ -396,7 +381,7 @@ bool Chassis::ros_clear_chassis_error_code_cmd_callback(segway_msgs::ros_clear_c
     // ROS_INFO("clear_chassis_error_code:%d ", res.clear_chassis_error_code_result);
     return true;
 }
-bool Chassis::ros_get_load_param_cmd_callback(segway_msgs::ros_get_load_param_cmd::Request &req, segway_msgs::ros_get_load_param_cmd::Response &res)
+bool Chassis::ros_get_load_param_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetLoadParamCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetLoadParamCmd::Response> res)
 {
     if (req.ros_get_load_param == false)
     {
@@ -406,7 +391,7 @@ bool Chassis::ros_get_load_param_cmd_callback(segway_msgs::ros_get_load_param_cm
     // ROS_INFO("get_load_param:%d ", res.get_load_param);
     return true;
 }
-bool Chassis::ros_get_chassis_SN_cmd_callback(segway_msgs::ros_get_chassis_SN_cmd::Request &req, segway_msgs::ros_get_chassis_SN_cmd::Response &res)
+bool Chassis::ros_get_chassis_SN_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetChassisSnCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetChassisSnCmd::Response> res)
 {
     if (req.ros_get_chassis_SN == false)
     {
@@ -424,7 +409,7 @@ bool Chassis::ros_get_chassis_SN_cmd_callback(segway_msgs::ros_get_chassis_SN_cm
     }
     return true;
 }
-bool Chassis::ros_get_sw_version_cmd_callback(segway_msgs::ros_get_sw_version_cmd::Request &req, segway_msgs::ros_get_sw_version_cmd::Response &res)
+bool Chassis::ros_get_sw_version_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetSwVersionCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetSwVersionCmd::Response> res)
 {
     if (req.ros_get_sw_version_cmd == false)
     {
@@ -438,7 +423,7 @@ bool Chassis::ros_get_sw_version_cmd_callback(segway_msgs::ros_get_sw_version_cm
     // ROS_INFO("res.host_version: %d, res.host_pantch_version:%d, res.central_version: %d, res.motor_version: %d ", res.host_version, res.host_pantch_version, res.central_version, res.motor_version);
     return true;
 }
-bool Chassis::ros_get_vel_max_feedback_cmd_callback(segway_msgs::ros_get_vel_max_feedback_cmd::Request &req, segway_msgs::ros_get_vel_max_feedback_cmd::Response &res)
+bool Chassis::ros_get_vel_max_feedback_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetVelMaxFeedbackCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetVelMaxFeedbackCmd::Response> res)
 {
     if (req.ros_get_vel_max_fb_cmd == false)
     {
@@ -451,7 +436,7 @@ bool Chassis::ros_get_vel_max_feedback_cmd_callback(segway_msgs::ros_get_vel_max
     // ROS_INFO("res.forward_max_vel_fb： %d, res.backward_max_vel_fb： %d, res.angular_max_vel_fb： %d ", res.forward_max_vel_fb, res.backward_max_vel_fb, res.angular_max_vel_fb);
     return true;
 }
-bool Chassis::ros_set_chassis_buzzer_cmd_callback(segway_msgs::ros_set_chassis_buzzer_cmd::Request &req, segway_msgs::ros_set_chassis_buzzer_cmd::Response &res)
+            bool Chassis::ros_set_chassis_buzzer_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosSetChassisBuzzerCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosSetChassisBuzzerCmd::Response> res)
 {
     uint8_t ret;
     if (req.ros_set_chassis_buzzer_cmd == 0)
@@ -467,7 +452,7 @@ bool Chassis::ros_set_chassis_buzzer_cmd_callback(segway_msgs::ros_set_chassis_b
     res.set_buzzer_result = ret;
     return true;
 }
-bool Chassis::ros_set_chassis_enable_cmd_callback(segway_msgs::ros_set_chassis_enable_cmd::Request &req, segway_msgs::ros_set_chassis_enable_cmd::Response &res)
+            bool Chassis::ros_set_chassis_enable_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosSetChassisEnableCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosSetChassisEnableCmd::Response> res)
 {
     uint8_t ret;
     if (req.ros_set_chassis_enable_cmd == false)
@@ -483,7 +468,7 @@ bool Chassis::ros_set_chassis_enable_cmd_callback(segway_msgs::ros_set_chassis_e
     res.chassis_set_chassis_enable_result = ret;
     return true;
 }
-bool Chassis::ros_set_chassis_poweroff_cmd_callback(segway_msgs::ros_set_chassis_poweroff_cmd::Request &req, segway_msgs::ros_set_chassis_poweroff_cmd::Response &res)
+            bool Chassis::ros_set_chassis_poweroff_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosSetChassisPoweroffCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosSetChassisPoweroffCmd::Response> res)
 {
     if (req.ros_set_chassis_poweroff_cmd == false)
     {
@@ -495,7 +480,7 @@ bool Chassis::ros_set_chassis_poweroff_cmd_callback(segway_msgs::ros_set_chassis
     res.chassis_set_poweroff_result = ret;
     return true;
 }
-bool Chassis::ros_set_load_param_cmd_callback(segway_msgs::ros_set_load_param_cmd::Request &req, segway_msgs::ros_set_load_param_cmd::Response &res)
+            bool Chassis::ros_set_load_param_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosSetLoadParamCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosSetLoadParamCmd::Response> res)
 {
     int16_t value = req.ros_set_load_param;
     if (value != 0 && value != 1)
@@ -503,12 +488,12 @@ bool Chassis::ros_set_load_param_cmd_callback(segway_msgs::ros_set_load_param_cm
         return false;
     }
     uint8_t ret = set_chassis_load_state(value);
-    ROS_INFO("req.ros_set_load_param:%d, set_chassis_load_state():%d ", req.ros_set_load_param, ret);
+    // ROS_INFO("req.ros_set_load_param:%d, set_chassis_load_state():%d ", req.ros_set_load_param, ret);
 
     res.chassis_set_load_param_result = ret;
     return true;
 }
-bool Chassis::ros_set_vel_max_cmd_callback(segway_msgs::ros_set_vel_max_cmd::Request &req, segway_msgs::ros_set_vel_max_cmd::Response &res)
+            bool Chassis::ros_set_vel_max_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosSetVelMaxCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosSetVelMaxCmd::Response> res)
 {
     double forward = req.ros_set_forward_max_vel;
     double backward = req.ros_set_backward_max_vel;
@@ -516,54 +501,54 @@ bool Chassis::ros_set_vel_max_cmd_callback(segway_msgs::ros_set_vel_max_cmd::Req
     uint8_t ret_forw = set_line_forward_max_vel(forward);
     uint8_t ret_back = set_line_backward_max_vel(backward);
     uint8_t ret_angl = set_angular_max_vel(angular);
-    ROS_INFO("req.ros_set_forward_max_vel:%f, req.ros_set_backward_max_vel:%f, req.ros_set_angular_max_vel:%f ", forward, backward, angular);
-    ROS_INFO("set_line_forward_max_vel():%d, set_line_backward_max_vel():%d, set_angular_max_vel():%d ", ret_forw, ret_back, ret_angl);
+    // ROS_INFO("req.ros_set_forward_max_vel:%f, req.ros_set_backward_max_vel:%f, req.ros_set_angular_max_vel:%f ", forward, backward, angular);
+    // ROS_INFO("set_line_forward_max_vel():%d, set_line_backward_max_vel():%d, set_angular_max_vel():%d ", ret_forw, ret_back, ret_angl);
 
     res.chassis_set_max_vel_result = ret_forw | ret_back | ret_angl;
     return true;
 }
-bool Chassis::ros_reset_host_power_cmd_callback(segway_msgs::ros_reset_host_power_cmd::Request & req, segway_msgs::ros_reset_host_power_cmd::Response &res)
+            bool Chassis::ros_reset_host_power_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosResetHostPowerCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosResetHostPowerCmd::Response> res)
 {
     uint16_t reset_interval_time = req.reset_interval_time;
     res.reset_result = reset_host_power_time_s(reset_interval_time);
-    ROS_INFO("req.reset_interval_time:%d", req.reset_interval_time);
-    ROS_INFO("res.reset_result:%d", res.reset_result);
+    // ROS_INFO("req./reset_interval_time:%d", req.reset_interval_time);
+    // ROS_INFO("res.reset_result:%d", res.reset_result);
     return true;
 }
-bool Chassis::ros_start_chassis_left_rotate_cmd_callback(segway_msgs::ros_start_chassis_left_rotate_cmd::Request & req, segway_msgs::ros_start_chassis_left_rotate_cmd::Response &res)
+            bool Chassis::ros_start_chassis_left_rotate_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosStartChassisLeftRotateCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosStartChassisLeftRotateCmd::Response> res)
 {
     double turn_vel = req.ros_start_chassis_left_rotate_cmd;
     set_vel_of_rotation(turn_vel);
     res.chassis_left_rotate_result = enable_chassis_in_situ_rotation(0);
-    ROS_INFO("req.ros_start_chassis_left_rotate_cmd:%lf", req.ros_start_chassis_left_rotate_cmd);
-    ROS_INFO("res.chassis_left_rotate_result:%d", res.chassis_left_rotate_result);
+    // ROS_INFO("req.ros_start_chassis_left_rotate_cmd:%lf", req.ros_start_chassis_left_rotate_cmd);
+    // ROS_INFO("res.chassis_left_rotate_result:%d", res.chassis_left_rotate_result);
     return true;
 }
-bool Chassis::ros_start_chassis_right_rotate_cmd_callback(segway_msgs::ros_start_chassis_right_rotate_cmd::Request & req, segway_msgs::ros_start_chassis_right_rotate_cmd::Response &res)
+            bool Chassis::ros_start_chassis_right_rotate_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosStartChassisRightRotateCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosStartChassisRightRotateCmd::Response> res)
 {
     double turn_vel = req.ros_start_chassis_right_rotate_cmd;
     set_vel_of_rotation(turn_vel);
     res.chassis_right_rotate_result = enable_chassis_in_situ_rotation(1);
-    ROS_INFO("req.ros_start_chassis_right_rotate_cmd:%lf", req.ros_start_chassis_right_rotate_cmd);
-    ROS_INFO("res.chassis_right_rotate_result:%d", res.chassis_right_rotate_result);
+    // ROS_INFO("req.ros_start_chassis_right_rotate_cmd:%lf", req.ros_start_chassis_right_rotate_cmd);
+    // ROS_INFO("res.chassis_right_rotate_result:%d", res.chassis_right_rotate_result);
     return true;
 }
-bool Chassis::ros_stop_chassis_rotate_cmd_callback(segway_msgs::ros_stop_chassis_rotate_cmd::Request & req, segway_msgs::ros_stop_chassis_rotate_cmd::Response &res)
+            bool Chassis::ros_stop_chassis_rotate_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosStopChassisRotateCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosStopChassisRotateCmd::Response> res)
 {
     if (req.ros_stop_chassis_rotate_cmd == false) {
         return false;
     }
     disable_chassis_in_situ_ratotion();
-    ROS_INFO("req.ros_stop_chassis_rotate_cmd:%d", req.ros_stop_chassis_rotate_cmd);
+    // ROS_INFO("req.ros_stop_chassis_rotate_cmd:%d", req.ros_stop_chassis_rotate_cmd);
     return true;
 }
-bool Chassis::ros_get_rotate_function_cfg_cmd_callback(segway_msgs::ros_get_rotate_function_cfg_cmd::Request & req, segway_msgs::ros_get_rotate_function_cfg_cmd::Response &res)
+            bool Chassis::ros_get_rotate_function_cfg_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetRotateFunctionCfgCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetRotateFunctionCfgCmd::Response> res)
 {
     res.cfg_in_situ_rotation_cmd = get_rotate_scheme_cfg();
-    ROS_INFO("req.cfg_in_situ_rotation_cmd:%d", res.cfg_in_situ_rotation_cmd);
+    // ROS_INFO("req.cfg_in_situ_rotation_cmd:%d", res.cfg_in_situ_rotation_cmd);
     return true;
 }
-bool Chassis::ros_set_cfg_rotate_function_cmd_callback(segway_msgs::ros_set_cfg_rotate_function_cmd::Request & req, segway_msgs::ros_set_cfg_rotate_function_cmd::Response &res)
+            bool Chassis::ros_set_cfg_rotate_function_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosSetCfgRotateFunctionCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosSetCfgRotateFunctionCmd::Response> res)
 {
     if (req.cfg_in_situ_rotation_function == false) {
         cfg_rotate_scheme_switch(0);
@@ -571,13 +556,13 @@ bool Chassis::ros_set_cfg_rotate_function_cmd_callback(segway_msgs::ros_set_cfg_
     else {
         cfg_rotate_scheme_switch(1);
     }
-    ROS_INFO("req.cfg_in_situ_rotation_function:%d", req.cfg_in_situ_rotation_function);
+    // ROS_INFO("req.cfg_in_situ_rotation_function:%d", req.cfg_in_situ_rotation_function);
     return true;
 }
-bool Chassis::ros_get_host_and_chassis_match_cmd_callback(segway_msgs::ros_get_host_and_chassis_match_cmd::Request & req, segway_msgs::ros_get_host_and_chassis_match_cmd::Response &res)
+            bool Chassis::ros_get_host_and_chassis_match_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetHostAndChassisMatchCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetHostAndChassisMatchCmd::Response> res)
 {
     res.is_matched_with_firmware = check_version_matched_with_fw();
-    ROS_INFO("req.is_matched_with_firmware:%d", res.is_matched_with_firmware);
+    // ROS_INFO("req.is_matched_with_firmware:%d", res.is_matched_with_firmware);
     return true;
 }
 
@@ -588,12 +573,12 @@ void Chassis::chassis_send_event_callback(int event_no)
     chassis_send_event_srv.request.chassis_send_event_id = (int16_t)event_no;
     if (chassis_send_event_srv_client.call(chassis_send_event_srv))
     {
-        ROS_INFO("send chassis_send_event_srv, chassis_send_event_srv.request.chassis_send_event_id: %d", chassis_send_event_srv.request.chassis_send_event_id);
-        ROS_INFO("receive chassis_send_event_srv, chassis_send_event_srv.response.ros_is_received: %d", chassis_send_event_srv.response.ros_is_received);
+        // ROS_INFO("send chassis_send_event_srv, chassis_send_event_srv.request.chassis_send_event_id: %d", chassis_send_event_srv.request.chassis_send_event_id);
+        // ROS_INFO("receive chassis_send_event_srv, chassis_send_event_srv.response.ros_is_received: %d", chassis_send_event_srv.response.ros_is_received);
     }
     else
     {
-        ROS_ERROR("Failed to call service chassis_send_event_srv");
+        // ROS_ERROR("Failed to call service chassis_send_event_srv");
     }
 }
 
@@ -636,7 +621,7 @@ void Chassis::PubImuToRosImu(void)
     //             ros_imu.angular_velocity.z, ros_imu.linear_acceleration.x);
 }
 
-void Chassis::TimeUpdate1000Hz(const ros::TimerEvent &event)
+void Chassis::TimeUpdate1000Hz()
 {
     if (Speed_update == 3)
     {
@@ -746,10 +731,10 @@ void Chassis::TimeUpdate1000Hz(const ros::TimerEvent &event)
         Odom_pub.publish(ROS_odom);
     }
 #endif
-    ros::spinOnce();
+    rclcpp::spin(nh_);
 }
 
-void Chassis::TimeUpdate1Hz(const ros::TimerEvent &event)
+void Chassis::TimeUpdate1Hz()
 {
     bms_fb.bat_soc = get_bat_soc();
     bms_fb.bat_charging = get_bat_charging();
@@ -780,7 +765,7 @@ void Chassis::TimeUpdate1Hz(const ros::TimerEvent &event)
     motor_work_mode_fb.motor_work_mode = get_chassis_work_model();
     motor_work_mode_fb_pub.publish(motor_work_mode_fb);
 
-    ros::spinOnce();
+    rclcpp::spin(nh_);
 }
 } // namespace robot
 #endif

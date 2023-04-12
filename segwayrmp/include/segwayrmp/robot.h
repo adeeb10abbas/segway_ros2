@@ -42,16 +42,19 @@
 #define IAP_STATE_COMPLETE  3
 #define IAP_STATE_FAIL      4
 #define IAP_STATE_ABORT     5
-using iapActionServer = rclcpp_action::Server<segway_msgs::action::RosSetIapCmd>;
-using iapActionClient = rclcpp_action::Client<segway_msgs::action::RosSetIapCmd>;
+// using iapActionServer = rclcpp_action::Server<segway_msgs::action::RosSetIapCmd>;
+// using iapActionClient = rclcpp_action::Client<segway_msgs::action::RosSetIapCmd>;
 
 namespace robot
 {
 
-    class Chassis : public rclcpp::Node
+    class Chassis
     {
+
         public:
-            explicit Chassis(const rclcpp::Node::SharedPtr &nh);
+            using iapCmd = segway_msgs::action::RosSetIapCmd;
+            using goalHandaleIapCmd = rclcpp_action::ServerGoalHandle<iapCmd>;
+            Chassis(const rclcpp::Node::SharedPtr nh);
             static void chassis_send_event_callback(int event_no);
         private:
             void cmd_vel_callback(const geometry_msgs::msg::Twist::SharedPtr vel);
@@ -59,8 +62,11 @@ namespace robot
             void TimeUpdate1Hz();
             void PubOdomToRosOdom(Odometry odom_data);
             void PubImuToRosImu(void);
-            rclcpp::Node::SharedPtr nh_;
+            std::shared_ptr<rclcpp::Node> nh_;
+
             rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr velocity_sub_;
+            rclcpp_action::Server<segway_msgs::action::RosSetIapCmd>::SharedPtr iapActionServer;
+            rclcpp_action::Client<segway_msgs::action::RosSetIapCmd>::SharedPtr iapActionClient;
 
             rclcpp::Publisher<segway_msgs::msg::Bmsfb>::SharedPtr bms_fb_pub;
             rclcpp::Publisher<segway_msgs::msg::Chassisctrlsrcfb>::SharedPtr chassis_ctrl_src_fb_pub;
@@ -92,6 +98,7 @@ namespace robot
             // Add service callbacks and service server declarations here
             // Callbacks
             bool ros_enable_chassis_rotate_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosEnableChassisRotateCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosEnableChassisRotateCmd::Response> res);
+            // bool ros_enable_chassis_rotate_cmd_callback(const segway_msgs::srv::RosEnableChassisRotateCmd::Request req, segway_msgs::srv::RosEnableChassisRotateCmd::Response res);
             bool ros_get_chassis_rotate_switch_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetChassisRotateSwitchCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetChassisRotateSwitchCmd::Response> res);
             bool ros_clear_chassis_error_code_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosClearChassisErrorCodeCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosClearChassisErrorCodeCmd::Response> res);
             bool ros_get_load_param_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetLoadParamCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetLoadParamCmd::Response> res);
@@ -111,6 +118,30 @@ namespace robot
             bool ros_set_cfg_rotate_function_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosSetCfgRotateFunctionCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosSetCfgRotateFunctionCmd::Response> res);
             bool ros_get_host_and_chassis_match_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetHostAndChassisMatchCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetHostAndChassisMatchCmd::Response> res);
 
+            void iapCmdExecute(const std::shared_ptr<goalHandaleIapCmd> goal_handle);
+            rclcpp_action::GoalResponse handle_iapCmdGoal(
+                const rclcpp_action::GoalUUID & uuid,
+                std::shared_ptr<const iapCmd::Goal> goal)
+            {
+                // RCLCPP_INFO(rclcpp::get_logger("SmartCar"), "Receive goal request with iap_board %d", goal->iap_board);
+                (void)uuid;
+                return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
+            }
+
+            rclcpp_action::CancelResponse handle_iapCmdCancel(
+                const std::shared_ptr<goalHandaleIapCmd> goal_handle)
+            {
+                RCLCPP_INFO(rclcpp::get_logger("SmartCar"), "Received request to cancel goal");
+                (void)goal_handle;
+                return rclcpp_action::CancelResponse::ACCEPT;
+            }
+
+            void handle_iapCmdAccepted(const std::shared_ptr<goalHandaleIapCmd> goal_handle)
+            {
+                using namespace std::placeholders;
+                (void)goal_handle;
+                std::thread{std::bind(&Chassis::iapCmdExecute, this, _1), goal_handle}.detach();
+            }
             rclcpp::Service<segway_msgs::srv::RosEnableChassisRotateCmd>::SharedPtr ros_enable_chassis_rotate_cmd_srv_server;
             rclcpp::Service<segway_msgs::srv::RosGetChassisRotateSwitchCmd>::SharedPtr ros_get_chassis_rotate_switch_cmd_srv_server;
             rclcpp::Service<segway_msgs::srv::RosClearChassisErrorCodeCmd>::SharedPtr ros_clear_chassis_error_code_cmd_srv_server;

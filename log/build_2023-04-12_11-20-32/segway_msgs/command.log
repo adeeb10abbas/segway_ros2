@@ -1,0 +1,6 @@
+Invoking command in '/home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/parallels/ros2_ws/src/segway_ros2/segway_msgs -DCMAKE_INSTALL_PREFIX=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs
+Invoked command in '/home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/parallels/ros2_ws/src/segway_ros2/segway_msgs -DCMAKE_INSTALL_PREFIX=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs
+Invoking command in '/home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs -- -j4 -l4
+Invoked command in '/home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs -- -j4 -l4
+Invoking command in '/home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs
+Invoked command in '/home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs

@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from segway_msgs/srv/RosSetVelMaxCmd.srv
+// generated code does not contain a copyright notice
+
+
+module segway_msgs {
+  module srv {
+    struct RosSetVelMaxCmd_Request {
+      double ros_setforward_max_vel;
+
+      double ros_setbackward_max_vel;
+
+      double ros_setangular_max_vel;
+    };
+    struct RosSetVelMaxCmd_Response {
+      uint8 chassis_setmax_vel_result;
+    };
+  };
+};

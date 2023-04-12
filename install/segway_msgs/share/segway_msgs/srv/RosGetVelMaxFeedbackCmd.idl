@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from segway_msgs/srv/RosGetVelMaxFeedbackCmd.srv
+// generated code does not contain a copyright notice
+
+
+module segway_msgs {
+  module srv {
+    struct RosGetVelMaxFeedbackCmd_Request {
+      boolean ros_getvel_max_fbcmd;
+    };
+    struct RosGetVelMaxFeedbackCmd_Response {
+      uint16 forward_maxvel_fb;
+
+      uint16 backward_maxvel_fb;
+
+      uint16 angular_maxvel_fb;
+    };
+  };
+};

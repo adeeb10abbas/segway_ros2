@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from segway_msgs/srv/RosEnableChassisRotateCmd.srv
+// generated code does not contain a copyright notice
+
+
+module segway_msgs {
+  module srv {
+    struct RosEnableChassisRotateCmd_Request {
+      boolean ros_enablechassis_rotate_cmd;
+    };
+    struct RosEnableChassisRotateCmd_Response {
+      @verbatim (language="comment", text=
+        "0:success; others: coutdown remaining time(seconds)")
+      int16 chassis_enablerotate_result;
+    };
+  };
+};

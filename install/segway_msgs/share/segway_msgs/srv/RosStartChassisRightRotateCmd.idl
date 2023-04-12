@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from segway_msgs/srv/RosStartChassisRightRotateCmd.srv
+// generated code does not contain a copyright notice
+
+
+module segway_msgs {
+  module srv {
+    struct RosStartChassisRightRotateCmd_Request {
+      @verbatim (language="comment", text=
+        "angular velocity of rotation in situ, unit: rad/s")
+      double ros_startchassis_right_rotatecmd;
+    };
+    struct RosStartChassisRightRotateCmd_Response {
+      @verbatim (language="comment", text=
+        "0:success; others: coutdown remaining time(10 milliseconds)")
+      int16 chassis_rightrotate_result;
+    };
+  };
+};

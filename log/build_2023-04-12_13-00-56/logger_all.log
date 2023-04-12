@@ -1,0 +1,185 @@
+[0.176s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.176s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff871dcf40>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff87ca1fc0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff87ca1fc0>>)
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.190s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.190s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/parallels/ros2_ws/src/segway_ros2'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.191s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(segway_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(segway_msgs) by extension 'ignore'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(segway_msgs) by extension 'ignore_ament_install'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(segway_msgs) by extensions ['colcon_pkg']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(segway_msgs) by extension 'colcon_pkg'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(segway_msgs) by extensions ['colcon_meta']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(segway_msgs) by extension 'colcon_meta'
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(segway_msgs) by extensions ['ros']
+[0.198s] Level 1:colcon.colcon_core.package_identification:_identify(segway_msgs) by extension 'ros'
+[0.200s] DEBUG:colcon.colcon_core.package_identification:Package 'segway_msgs' with type 'ros.ament_cmake' and name 'segway_msgs'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(segwayrmp) by extensions ['ignore', 'ignore_ament_install']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(segwayrmp) by extension 'ignore'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(segwayrmp) by extension 'ignore_ament_install'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(segwayrmp) by extensions ['colcon_pkg']
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(segwayrmp) by extension 'colcon_pkg'
+[0.200s] Level 1:colcon.colcon_core.package_identification:_identify(segwayrmp) by extensions ['colcon_meta']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(segwayrmp) by extension 'colcon_meta'
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(segwayrmp) by extensions ['ros']
+[0.201s] Level 1:colcon.colcon_core.package_identification:_identify(segwayrmp) by extension 'ros'
+[0.201s] DEBUG:colcon.colcon_core.package_identification:Package 'segwayrmp' with type 'ros.catkin' and name 'segwayrmp'
+[0.201s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.201s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.201s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.201s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.201s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.215s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.215s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.216s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 272 installed packages in /opt/ros/humble
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segway_msgs' build argument 'cmake_args' from command line to 'None'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segway_msgs' build argument 'cmake_target' from command line to 'None'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segway_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segway_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segway_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segway_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segway_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segway_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segway_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.249s] DEBUG:colcon.colcon_core.verb:Building package 'segway_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs', 'merge_install': False, 'path': '/home/parallels/ros2_ws/src/segway_ros2/segway_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segwayrmp' build argument 'cmake_args' from command line to 'None'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segwayrmp' build argument 'cmake_target' from command line to 'None'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segwayrmp' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segwayrmp' build argument 'cmake_clean_cache' from command line to 'False'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segwayrmp' build argument 'cmake_clean_first' from command line to 'False'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segwayrmp' build argument 'cmake_force_configure' from command line to 'False'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segwayrmp' build argument 'ament_cmake_args' from command line to 'None'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segwayrmp' build argument 'catkin_cmake_args' from command line to 'None'
+[0.249s] Level 5:colcon.colcon_core.verb:set package 'segwayrmp' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.249s] DEBUG:colcon.colcon_core.verb:Building package 'segwayrmp' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/parallels/ros2_ws/src/segway_ros2/build/segwayrmp', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp', 'merge_install': False, 'path': '/home/parallels/ros2_ws/src/segway_ros2/segwayrmp', 'symlink_install': False, 'test_result_base': None}
+[0.250s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.251s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.251s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/parallels/ros2_ws/src/segway_ros2/segway_msgs' with build type 'ament_cmake'
+[0.252s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/parallels/ros2_ws/src/segway_ros2/segway_msgs'
+[0.254s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.254s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.254s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.260s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs -- -j4 -l4
+[0.536s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs -- -j4 -l4
+[0.969s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs
+[1.017s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(segway_msgs)
+[1.017s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/parallels/ros2_ws/src/segway_ros2/build/segway_msgs
+[1.020s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs' for CMake module files
+[1.020s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs' for CMake config files
+[1.020s] Level 1:colcon.colcon_core.shell:create_environment_hook('segway_msgs', 'cmake_prefix_path')
+[1.021s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/cmake_prefix_path.ps1'
+[1.021s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/cmake_prefix_path.dsv'
+[1.021s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/cmake_prefix_path.sh'
+[1.022s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/lib'
+[1.022s] Level 1:colcon.colcon_core.shell:create_environment_hook('segway_msgs', 'ld_library_path_lib')
+[1.023s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/ld_library_path_lib.ps1'
+[1.023s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/ld_library_path_lib.dsv'
+[1.023s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/ld_library_path_lib.sh'
+[1.023s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/bin'
+[1.023s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/lib/pkgconfig/segway_msgs.pc'
+[1.023s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/lib/python3.10/site-packages'
+[1.023s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/bin'
+[1.024s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/package.ps1'
+[1.024s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/package.dsv'
+[1.024s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/package.sh'
+[1.025s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/package.bash'
+[1.025s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/package.zsh'
+[1.025s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/colcon-core/packages/segway_msgs)
+[1.442s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(segway_msgs)
+[1.443s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs' for CMake module files
+[1.443s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs' for CMake config files
+[1.443s] Level 1:colcon.colcon_core.shell:create_environment_hook('segway_msgs', 'cmake_prefix_path')
+[1.444s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/cmake_prefix_path.ps1'
+[1.444s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/cmake_prefix_path.dsv'
+[1.444s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/cmake_prefix_path.sh'
+[1.444s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/lib'
+[1.444s] Level 1:colcon.colcon_core.shell:create_environment_hook('segway_msgs', 'ld_library_path_lib')
+[1.445s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/ld_library_path_lib.ps1'
+[1.445s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/ld_library_path_lib.dsv'
+[1.445s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/hook/ld_library_path_lib.sh'
+[1.445s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/bin'
+[1.445s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/lib/pkgconfig/segway_msgs.pc'
+[1.445s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/lib/python3.10/site-packages'
+[1.446s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/bin'
+[1.446s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/package.ps1'
+[1.446s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/package.dsv'
+[1.447s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/package.sh'
+[1.447s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/package.bash'
+[1.447s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/segway_msgs/package.zsh'
+[1.447s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/share/colcon-core/packages/segway_msgs)
+[1.447s] INFO:colcon.colcon_ros.task.catkin.build:Building ROS package in '/home/parallels/ros2_ws/src/segway_ros2/segwayrmp' with build type 'catkin'
+[1.447s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/parallels/ros2_ws/src/segway_ros2/segwayrmp'
+[1.448s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.448s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.454s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/parallels/ros2_ws/src/segway_ros2/build/segwayrmp': AMENT_PREFIX_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs LD_LIBRARY_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/parallels/ros2_ws/src/segway_ros2/build/segwayrmp -- -j4 -l4
+[7.530s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/parallels/ros2_ws/src/segway_ros2/build/segwayrmp' returned '2': AMENT_PREFIX_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs LD_LIBRARY_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/parallels/ros2_ws/src/segway_ros2/build/segwayrmp -- -j4 -l4
+[7.552s] Level 1:colcon.colcon_core.shell:create_environment_hook('segwayrmp', 'ros_package_path')
+[7.553s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/hook/ros_package_path.ps1'
+[7.553s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/hook/ros_package_path.dsv'
+[7.553s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/hook/ros_package_path.sh'
+[7.553s] Level 1:colcon.colcon_core.shell:create_environment_hook('segwayrmp', 'pkg_config_path')
+[7.554s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/hook/pkg_config_path.ps1'
+[7.554s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/hook/pkg_config_path.dsv'
+[7.555s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/hook/pkg_config_path.sh'
+[7.556s] Level 1:colcon.colcon_core.shell:create_environment_hook('segwayrmp', 'pkg_config_path_multiarch')
+[7.557s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/hook/pkg_config_path_multiarch.ps1'
+[7.557s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/hook/pkg_config_path_multiarch.dsv'
+[7.557s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/hook/pkg_config_path_multiarch.sh'
+[7.558s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(segwayrmp)
+[7.559s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp' for CMake module files
+[7.559s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp' for CMake config files
+[7.559s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/bin'
+[7.559s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/lib/pkgconfig/segwayrmp.pc'
+[7.560s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/lib/python3.10/site-packages'
+[7.560s] Level 1:colcon.colcon_core.environment:checking '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/bin'
+[7.560s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/package.ps1'
+[7.561s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/package.dsv'
+[7.561s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/package.sh'
+[7.561s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/package.bash'
+[7.561s] INFO:colcon.colcon_core.shell:Creating package script '/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/segwayrmp/package.zsh'
+[7.561s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/parallels/ros2_ws/src/segway_ros2/install/segwayrmp/share/colcon-core/packages/segwayrmp)
+[7.572s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[7.572s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[7.572s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '2'
+[7.572s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[7.575s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[7.575s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[7.575s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[7.590s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[7.591s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/parallels/ros2_ws/src/segway_ros2/install/local_setup.ps1'
+[7.591s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/parallels/ros2_ws/src/segway_ros2/install/_local_setup_util_ps1.py'
+[7.592s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/parallels/ros2_ws/src/segway_ros2/install/setup.ps1'
+[7.593s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/parallels/ros2_ws/src/segway_ros2/install/local_setup.sh'
+[7.593s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/parallels/ros2_ws/src/segway_ros2/install/_local_setup_util_sh.py'
+[7.594s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/parallels/ros2_ws/src/segway_ros2/install/setup.sh'
+[7.594s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/parallels/ros2_ws/src/segway_ros2/install/local_setup.bash'
+[7.595s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/parallels/ros2_ws/src/segway_ros2/install/setup.bash'
+[7.595s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/parallels/ros2_ws/src/segway_ros2/install/local_setup.zsh'
+[7.596s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/parallels/ros2_ws/src/segway_ros2/install/setup.zsh'

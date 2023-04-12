@@ -51,7 +51,7 @@ namespace robot
     class Chassis : public rclcpp::Node
     {
         public:
-            Chassis(const std::shared_ptr<rclcpp::Node>& node);
+            explicit Chassis(const rclcpp::Node::SharedPtr &nh);
             static void chassis_send_event_callback(int event_no);
         private:
             void cmd_vel_callback(const geometry_msgs::msg::Twist::SharedPtr vel);
@@ -59,7 +59,7 @@ namespace robot
             void TimeUpdate1Hz();
             void PubOdomToRosOdom(Odometry odom_data);
             void PubImuToRosImu(void);
-
+            rclcpp::Node::SharedPtr nh_;
             rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr velocity_sub_;
 
             rclcpp::Publisher<segway_msgs::msg::Bmsfb>::SharedPtr bms_fb_pub;

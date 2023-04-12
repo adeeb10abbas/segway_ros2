@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from segway_msgs/msg/Ticksfb.msg
+// generated code does not contain a copyright notice
+
+
+module segway_msgs {
+  module msg {
+    struct Ticksfb {
+      int32 fl_ticks;
+
+      int32 fr_ticks;
+
+      int32 rl_ticks;
+
+      int32 rr_ticks;
+
+      uint64 ticks_timestamp;
+    };
+  };
+};

@@ -1,0 +1,14 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from segway_msgs/msg/Motorworkmodefb.msg
+// generated code does not contain a copyright notice
+
+
+module segway_msgs {
+  module msg {
+    struct Motorworkmodefb {
+      @verbatim (language="comment", text=
+        "0: no output torque 1: output torque")
+      uint16 motor_work_mode;
+    };
+  };
+};

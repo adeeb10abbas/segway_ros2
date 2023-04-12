@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from segway_msgs/msg/Bmsfb.msg
+// generated code does not contain a copyright notice
+
+
+module segway_msgs {
+  module msg {
+    struct Bmsfb {
+      int16 bat_soc;
+
+      int16 bat_charging;
+
+      int32 bat_vol;
+
+      int32 bat_current;
+
+      int16 bat_temp;
+    };
+  };
+};

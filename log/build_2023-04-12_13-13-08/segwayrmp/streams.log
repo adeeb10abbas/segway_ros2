@@ -1,0 +1,693 @@
+[0.006s] Invoking command in '/home/parallels/ros2_ws/src/segway_ros2/build/segwayrmp': AMENT_PREFIX_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs LD_LIBRARY_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/parallels/ros2_ws/src/segway_ros2/build/segwayrmp -- -j4 -l4
+[0.055s] [35m[1mConsolidate compiler generated dependencies of target SmartCar[0m
+[0.082s] gmake[2]: *** No rule to make target '/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/lib/libctrl_arm64-v8a.so', needed by 'SmartCar'.  Stop.
+[0.082s] gmake[2]: *** Waiting for unfinished jobs....
+[0.087s] [ 25%] [32mBuilding CXX object CMakeFiles/SmartCar.dir/src/robot.cpp.o[0m
+[1.543s] In file included from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:14[m[K,
+[1.544s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:17[m[K,
+[1.544s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.544s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:[m[K In member function ‘[01m[KSensorData::BaseImu SensorData::BaseImu::Interpolation(int64_t, SensorData::BaseImu, SensorData::BaseImu)[m[K’:
+[1.544s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:29:58:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr SensorData::BaseImu::BaseImu(const SensorData::BaseImu&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+[1.544s]    29 |             if(time_inter <= imu_before.TimeStamp)return [01;35m[Kimu_before[m[K;
+[1.544s]       |                                                          [01;35m[K^~~~~~~~~~[m[K
+[1.544s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:17:18:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[KSensorData::BaseImu[m[K’ has user-provided ‘[01m[KSensorData::BaseImu& SensorData::BaseImu::operator=(SensorData::BaseImu&)[m[K’
+[1.544s]    17 |         BaseImu& [01;36m[Koperator[m[K=(BaseImu& other)
+[1.544s]       |                  [01;36m[K^~~~~~~~[m[K
+[1.544s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:30:57:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr SensorData::BaseImu::BaseImu(const SensorData::BaseImu&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+[1.544s]    30 |             if(time_inter >= imu_after.TimeStamp)return [01;35m[Kimu_after[m[K;
+[1.544s]       |                                                         [01;35m[K^~~~~~~~~[m[K
+[1.544s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:17:18:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[KSensorData::BaseImu[m[K’ has user-provided ‘[01m[KSensorData::BaseImu& SensorData::BaseImu::operator=(SensorData::BaseImu&)[m[K’
+[1.544s]    17 |         BaseImu& [01;36m[Koperator[m[K=(BaseImu& other)
+[1.544s]       |                  [01;36m[K^~~~~~~~[m[K
+[1.544s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:31:67:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr SensorData::BaseImu::BaseImu(const SensorData::BaseImu&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+[1.544s]    31 |             if(imu_before.TimeStamp == imu_after.TimeStamp)return [01;35m[Kimu_before[m[K;
+[1.544s]       |                                                                   [01;35m[K^~~~~~~~~~[m[K
+[1.544s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:17:18:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[KSensorData::BaseImu[m[K’ has user-provided ‘[01m[KSensorData::BaseImu& SensorData::BaseImu::operator=(SensorData::BaseImu&)[m[K’
+[1.544s]    17 |         BaseImu& [01;36m[Koperator[m[K=(BaseImu& other)
+[1.544s]       |                  [01;36m[K^~~~~~~~[m[K
+[1.544s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:38:20:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr SensorData::BaseImu::BaseImu(const SensorData::BaseImu&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+[1.544s]    38 |             return [01;35m[Kres[m[K;
+[1.544s]       |                    [01;35m[K^~~[m[K
+[1.544s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:17:18:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[KSensorData::BaseImu[m[K’ has user-provided ‘[01m[KSensorData::BaseImu& SensorData::BaseImu::operator=(SensorData::BaseImu&)[m[K’
+[1.544s]    17 |         BaseImu& [01;36m[Koperator[m[K=(BaseImu& other)
+[1.544s]       |                  [01;36m[K^~~~~~~~[m[K
+[1.546s] In file included from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:17[m[K,
+[1.546s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.546s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:[m[K In member function ‘[01m[KSensorData::BaseImu ImuRecord::getAverageImu(int64_t)[m[K’:
+[1.546s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:29:38:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr SensorData::BaseImu::BaseImu(const SensorData::BaseImu&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+[1.546s]    29 |     SensorData::BaseImu imu_after = *[01;35m[Ki[m[K;
+[1.546s]       |                                      [01;35m[K^[m[K
+[1.546s] In file included from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:14[m[K,
+[1.546s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:17[m[K,
+[1.546s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.546s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:17:18:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[KSensorData::BaseImu[m[K’ has user-provided ‘[01m[KSensorData::BaseImu& SensorData::BaseImu::operator=(SensorData::BaseImu&)[m[K’
+[1.546s]    17 |         BaseImu& [01;36m[Koperator[m[K=(BaseImu& other)
+[1.546s]       |                  [01;36m[K^~~~~~~~[m[K
+[1.546s] In file included from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:17[m[K,
+[1.546s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.546s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:39:55:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr SensorData::BaseImu::BaseImu(const SensorData::BaseImu&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+[1.546s]    39 |       SensorData::BaseImu imu_suanz = [01;35m[Ki->Interpolation(ts, *i, *j)[m[K;
+[1.546s]       |                                       [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~~~~~[m[K
+[1.546s] In file included from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:14[m[K,
+[1.546s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:17[m[K,
+[1.546s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.546s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:17:18:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[KSensorData::BaseImu[m[K’ has user-provided ‘[01m[KSensorData::BaseImu& SensorData::BaseImu::operator=(SensorData::BaseImu&)[m[K’
+[1.546s]    17 |         BaseImu& [01;36m[Koperator[m[K=(BaseImu& other)
+[1.546s]       |                  [01;36m[K^~~~~~~~[m[K
+[1.546s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:26:59:[m[K [01;36m[Knote: [m[K  initializing argument 2 of ‘[01m[KSensorData::BaseImu SensorData::BaseImu::Interpolation(int64_t, SensorData::BaseImu, SensorData::BaseImu)[m[K’
+[1.547s]    26 |         BaseImu Interpolation(int64_t time_inter, [01;36m[KBaseImu imu_before[m[K, BaseImu imu_after){
+[1.547s]       |                                                   [01;36m[K~~~~~~~~^~~~~~~~~~[m[K
+[1.547s] In file included from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:17[m[K,
+[1.547s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.547s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:39:55:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr SensorData::BaseImu::BaseImu(const SensorData::BaseImu&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+[1.547s]    39 |       SensorData::BaseImu imu_suanz = [01;35m[Ki->Interpolation(ts, *i, *j)[m[K;
+[1.547s]       |                                       [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~~~~~[m[K
+[1.547s] In file included from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:14[m[K,
+[1.547s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:17[m[K,
+[1.547s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.547s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:17:18:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[KSensorData::BaseImu[m[K’ has user-provided ‘[01m[KSensorData::BaseImu& SensorData::BaseImu::operator=(SensorData::BaseImu&)[m[K’
+[1.547s]    17 |         BaseImu& [01;36m[Koperator[m[K=(BaseImu& other)
+[1.547s]       |                  [01;36m[K^~~~~~~~[m[K
+[1.547s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:26:79:[m[K [01;36m[Knote: [m[K  initializing argument 3 of ‘[01m[KSensorData::BaseImu SensorData::BaseImu::Interpolation(int64_t, SensorData::BaseImu, SensorData::BaseImu)[m[K’
+[1.547s]    26 |         BaseImu Interpolation(int64_t time_inter, BaseImu imu_before, [01;36m[KBaseImu imu_after[m[K){
+[1.547s]       |                                                                       [01;36m[K~~~~~~~~^~~~~~~~~[m[K
+[1.547s] In file included from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:17[m[K,
+[1.547s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.547s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:44:49:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr SensorData::BaseImu::BaseImu(const SensorData::BaseImu&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+[1.547s]    44 |     if (time_gap_ == 0) return imu_buffer_.back([01;35m[K)[m[K;
+[1.547s]       |                                                 [01;35m[K^[m[K
+[1.547s] In file included from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:14[m[K,
+[1.547s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:17[m[K,
+[1.547s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.547s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:17:18:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[KSensorData::BaseImu[m[K’ has user-provided ‘[01m[KSensorData::BaseImu& SensorData::BaseImu::operator=(SensorData::BaseImu&)[m[K’
+[1.547s]    17 |         BaseImu& [01;36m[Koperator[m[K=(BaseImu& other)
+[1.547s]       |                  [01;36m[K^~~~~~~~[m[K
+[1.547s] In file included from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:17[m[K,
+[1.547s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.547s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:48:12:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kconstexpr SensorData::BaseImu::BaseImu(const SensorData::BaseImu&)[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-copy-Wdeprecated-copy]8;;[m[K]
+[1.547s]    48 |     return [01;35m[Kres_imu[m[K;
+[1.547s]       |            [01;35m[K^~~~~~~[m[K
+[1.547s] In file included from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_odometry.h:14[m[K,
+[1.547s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:17[m[K,
+[1.547s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.548s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/Ge_encoder_sensordata.h:17:18:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[KSensorData::BaseImu[m[K’ has user-provided ‘[01m[KSensorData::BaseImu& SensorData::BaseImu::operator=(SensorData::BaseImu&)[m[K’
+[1.548s]    17 |         BaseImu& [01;36m[Koperator[m[K=(BaseImu& other)
+[1.548s]       |                  [01;36m[K^~~~~~~~[m[K
+[1.935s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:[m[K In constructor ‘[01m[Krobot::Chassis::Chassis(const SharedPtr&)[m[K’:
+[1.935s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:262:61:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Krclcpp::Node::Node()[m[K’
+[1.935s]   262 | Chassis::Chassis(const rclcpp::Node::SharedPtr &nh) : nh_(nh[01;31m[K)[m[K
+[1.935s]       |                                                             [01;31m[K^[m[K
+[1.935s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+[1.935s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:22[m[K,
+[1.935s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[1.935s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:4[m[K,
+[1.935s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.935s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:1294:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Krclcpp::Node::Node(const rclcpp::Node&, const string&)[m[K’
+[1.935s]  1294 |   [01;36m[KNode[m[K(
+[1.935s]       |   [01;36m[K^~~~[m[K
+[1.935s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:1294:3:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 0 provided
+[1.935s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:101:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Krclcpp::Node::Node(const string&, const string&, const rclcpp::NodeOptions&)[m[K’
+[1.935s]   101 |   explicit [01;36m[KNode[m[K(
+[1.935s]       |            [01;36m[K^~~~[m[K
+[1.936s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:101:12:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 0 provided
+[1.936s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:89:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Krclcpp::Node::Node(const string&, const rclcpp::NodeOptions&)[m[K’
+[1.936s]    89 |   explicit [01;36m[KNode[m[K(
+[1.936s]       |            [01;36m[K^~~~[m[K
+[1.936s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:89:12:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 0 provided
+[1.987s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:336:95:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kcreate_server<segway_msgs::action::RosSetIapCmd>(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr, rclcpp::node_interfaces::NodeClockInterface::SharedPtr, rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr, rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr, const char [23], std::_Bind_helper<false, robot::Chassis::Chassis(const SharedPtr&)::<lambda(std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd> >)>*, robot::Chassis*, const std::_Placeholder<1>&>::type, robot::Chassis::Chassis(const SharedPtr&)::<lambda(const GoalUUID&, std::shared_ptr<const segway_msgs::action::RosSetIapCmd_Goal_<std::allocator<void> > >)>&, robot::Chassis::Chassis(const SharedPtr&)::<lambda(std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd> >)>&, robot::Chassis::Chassis(const SharedPtr&)::<lambda(std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd> >, const std::unique_ptr<segway_msgs::action::RosSetIapCmd_Feedback_<std::allocator<void> >, std::default_delete<segway_msgs::action::RosSetIapCmd_Feedback_<std::allocator<void> > > >&)>&)[m[K’
+[1.987s]   336 |  ros_set_iap_cmd_callback = [01;31m[Krclcpp_action::create_server<segway_msgs::action::RosSetIapCmd>([m[K
+[1.987s]       |                             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[1.987s] 
+[1.987s]   337 | [01;31m[K this->get_node_base_interface(),[m[K
+[1.987s]       |  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                           
+[1.987s] 
+[1.987s]   338 | [01;31m[K this->get_node_clock_interface(),[m[K
+[1.987s]       |  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                          
+[1.987s] 
+[1.987s]   339 | [01;31m[K this->get_node_logging_interface(),[m[K
+[1.987s]       |  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                        
+[1.987s] 
+[1.987s]   340 | [01;31m[K this->get_node_waitables_interface(),[m[K
+[1.987s]       |  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                      
+[1.987s] 
+[1.987s]   341 | [01;31m[K "ros_set_iap_cmd_action",[m[K
+[1.987s]       |  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                                  
+[1.987s] 
+[1.987s]   342 | [01;31m[K std::bind(&execute_callback, this, _1),[m[K
+[1.987s]       |  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                    
+[1.987s] 
+[1.988s]   343 | [01;31m[K goal_callback,[m[K
+[1.988s]       |  [01;31m[K~~~~~~~~~~~~~~[m[K                                                                             
+[1.988s] 
+[1.988s]   344 | [01;31m[K cancel_callback,[m[K
+[1.988s]       |  [01;31m[K~~~~~~~~~~~~~~~~[m[K                                                                           
+[1.988s] 
+[1.988s]   345 | [01;31m[K feedback_callback)[m[K;
+[1.988s]       |  [01;31m[K~~~~~~~~~~~~~~~~~~[m[K                                                                         
+[1.988s] 
+[1.988s] In file included from [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/rclcpp_action.hpp:39[m[K,
+[1.988s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/include/segwayrmp/robot.h:38[m[K,
+[1.988s]                  from [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:1[m[K:
+[1.988s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_server.hpp:58:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktypename rclcpp_action::Server<ActionT>::SharedPtr rclcpp_action::create_server(rclcpp::node_interfaces::NodeBaseInterface::SharedPtr, rclcpp::node_interfaces::NodeClockInterface::SharedPtr, rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr, rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr, const string&, typename rclcpp_action::Server<ActionT>::GoalCallback, typename rclcpp_action::Server<ActionT>::CancelCallback, typename rclcpp_action::Server<ActionT>::AcceptedCallback, const rcl_action_server_options_t&, rclcpp::CallbackGroup::SharedPtr) [with ActionT = segway_msgs::action::RosSetIapCmd; typename rclcpp_action::Server<ActionT>::SharedPtr = std::shared_ptr<rclcpp_action::Server<segway_msgs::action::RosSetIapCmd> >; rclcpp::node_interfaces::NodeBaseInterface::SharedPtr = std::shared_ptr<rclcpp::node_interfaces::NodeBaseInterface>; rclcpp::node_interfaces::NodeClockInterface::SharedPtr = std::shared_ptr<rclcpp::node_interfaces::NodeClockInterface>; rclcpp::node_interfaces::NodeLoggingInterface::SharedPtr = std::shared_ptr<rclcpp::node_interfaces::NodeLoggingInterface>; rclcpp::node_interfaces::NodeWaitablesInterface::SharedPtr = std::shared_ptr<rclcpp::node_interfaces::NodeWaitablesInterface>; std::string = std::__cxx11::basic_string<char>; typename rclcpp_action::Server<ActionT>::GoalCallback = std::function<rclcpp_action::GoalResponse(const std::array<unsigned char, 16>&, std::shared_ptr<const segway_msgs::action::RosSetIapCmd_Goal_<std::allocator<void> > >)>; typename rclcpp_action::Server<ActionT>::CancelCallback = std::function<rclcpp_action::CancelResponse(std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd> >)>; typename rclcpp_action::Server<ActionT>::AcceptedCallback = std::function<void(std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd> >)>; rcl_action_server_options_t = rcl_action_server_options_s; rclcpp::CallbackGroup::SharedPtr = std::shared_ptr<rclcpp::CallbackGroup>][m[K’
+[1.988s]    58 | [01;36m[Kcreate_server[m[K(
+[1.988s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[1.988s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_server.hpp:64:42:[m[K [01;36m[Knote: [m[K  no known conversion for argument 6 from ‘[01m[Kstd::_Bind_helper<false, robot::Chassis::Chassis(const SharedPtr&)::<lambda(std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd> >)>*, robot::Chassis*, const std::_Placeholder<1>&>::type[m[K’ to ‘[01m[Krclcpp_action::Server<segway_msgs::action::RosSetIapCmd>::GoalCallback[m[K’ {aka ‘[01m[Kstd::function<rclcpp_action::GoalResponse(const std::array<unsigned char, 16>&, std::shared_ptr<const segway_msgs::action::RosSetIapCmd_Goal_<std::allocator<void> > >)>[m[K’}
+[1.988s]    64 |   [01;36m[Ktypename Server<ActionT>::GoalCallback handle_goal[m[K,
+[1.988s]       |   [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~[m[K
+[1.988s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_server.hpp:132:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class ActionT, class NodeT> typename rclcpp_action::Server<ActionT>::SharedPtr rclcpp_action::create_server(NodeT, const string&, typename rclcpp_action::Server<ActionT>::GoalCallback, typename rclcpp_action::Server<ActionT>::CancelCallback, typename rclcpp_action::Server<ActionT>::AcceptedCallback, const rcl_action_server_options_t&, rclcpp::CallbackGroup::SharedPtr)[m[K’
+[1.988s]   132 | [01;36m[Kcreate_server[m[K(
+[1.988s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[1.988s] [01m[K/opt/ros/humble/include/rclcpp_action/rclcpp_action/create_server.hpp:132:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[1.988s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:336:95:[m[K [01;36m[Knote: [m[K  candidate expects 7 arguments, 9 provided
+[1.988s]   336 |  ros_set_iap_cmd_callback = [01;36m[Krclcpp_action::create_server<segway_msgs::action::RosSetIapCmd>([m[K
+[1.988s]       |                             [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[1.988s] 
+[1.988s]   337 | [01;36m[K this->get_node_base_interface(),[m[K
+[1.988s]       |  [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                           
+[1.988s] 
+[1.988s]   338 | [01;36m[K this->get_node_clock_interface(),[m[K
+[1.988s]       |  [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                          
+[1.988s] 
+[1.988s]   339 | [01;36m[K this->get_node_logging_interface(),[m[K
+[1.988s]       |  [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                        
+[1.988s] 
+[1.989s]   340 | [01;36m[K this->get_node_waitables_interface(),[m[K
+[1.989s]       |  [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                      
+[1.989s] 
+[1.989s]   341 | [01;36m[K "ros_set_iap_cmd_action",[m[K
+[1.989s]       |  [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                                  
+[1.989s] 
+[1.989s]   342 | [01;36m[K std::bind(&execute_callback, this, _1),[m[K
+[1.989s]       |  [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K                                                    
+[1.989s] 
+[1.989s]   343 | [01;36m[K goal_callback,[m[K
+[1.989s]       |  [01;36m[K~~~~~~~~~~~~~~[m[K                                                                             
+[1.989s] 
+[1.989s]   344 | [01;36m[K cancel_callback,[m[K
+[1.989s]       |  [01;36m[K~~~~~~~~~~~~~~~~[m[K                                                                           
+[1.989s] 
+[1.989s]   345 | [01;36m[K feedback_callback)[m[K;
+[1.989s]       |  [01;36m[K~~~~~~~~~~~~~~~~~~[m[K                                                                         
+[1.989s] 
+[1.989s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:348:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing SharedPtr = class std::shared_ptr<rclcpp::Node>[m[K’ {aka ‘[01m[Kclass std::shared_ptr<rclcpp::Node>[m[K’} has no member named ‘[01m[KcreateTimer[m[K’
+[1.989s]   348 |     update_timer_ = nh_.[01;31m[KcreateTimer[m[K(ros::Duration(0.001), &Chassis::TimeUpdate1000Hz, this);
+[1.989s]       |                         [01;31m[K^~~~~~~~~~~[m[K
+[1.989s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:348:37:[m[K [01;31m[Kerror: [m[K‘[01m[Kros[m[K’ has not been declared
+[1.989s]   348 |     update_timer_ = nh_.createTimer([01;31m[Kros[m[K::Duration(0.001), &Chassis::TimeUpdate1000Hz, this);
+[1.989s]       |                                     [01;31m[K^~~[m[K
+[1.989s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:349:26:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing SharedPtr = class std::shared_ptr<rclcpp::Node>[m[K’ {aka ‘[01m[Kclass std::shared_ptr<rclcpp::Node>[m[K’} has no member named ‘[01m[KcreateTimer[m[K’
+[1.989s]   349 |     update_timer2_ = nh_.[01;31m[KcreateTimer[m[K(ros::Duration(1), &Chassis::TimeUpdate1Hz, this);
+[1.989s]       |                          [01;31m[K^~~~~~~~~~~[m[K
+[1.989s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:349:38:[m[K [01;31m[Kerror: [m[K‘[01m[Kros[m[K’ has not been declared
+[1.989s]   349 |     update_timer2_ = nh_.createTimer([01;31m[Kros[m[K::Duration(1), &Chassis::TimeUpdate1Hz, this);
+[1.989s]       |                                      [01;31m[K^~~[m[K
+[1.989s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:350:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kros[m[K’ has not been declared
+[1.989s]   350 |     [01;31m[Kros[m[K::spin();
+[1.989s]       |     [01;31m[K^~~[m[K
+[1.991s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:[m[K At global scope:
+[1.991s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:363:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_enable_chassis_rotate_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[1.991s]   363 | bool [01;31m[KChassis[m[K::ros_enable_chassis_rotate_cmd_callback(segway_msgs::ros_enable_chassis_rotate_cmd::Request &req, segway_msgs::ros_enable_chassis_rotate_cmd::Response &res)
+[1.991s]       |      [01;31m[K^~~~~~~[m[K
+[1.991s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:363:67:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_enable_chassis_rotate_cmd[m[K’ has not been declared
+[1.991s]   363 | bool Chassis::ros_enable_chassis_rotate_cmd_callback(segway_msgs::[01;31m[Kros_enable_chassis_rotate_cmd[m[K::Request &req, segway_msgs::ros_enable_chassis_rotate_cmd::Response &res)
+[1.991s]       |                                                                   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.995s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:363:107:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[1.995s]   363 | chassis_rotate_cmd_callback(segway_msgs::ros_enable_chassis_rotate_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_enable_chassis_rotate_cmd::Response &res)
+[1.995s]       |                                                                                  [01;31m[K^~~[m[K
+[1.995s] 
+[1.995s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:363:125:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_enable_chassis_rotate_cmd[m[K’ has not been declared
+[1.995s]   363 | _callback(segway_msgs::ros_enable_chassis_rotate_cmd::Request &req, segway_msgs::[01;31m[Kros_enable_chassis_rotate_cmd[m[K::Response &res)
+[1.995s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[1.995s] 
+[1.999s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:363:166:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[1.999s]   363 | chassis_rotate_cmd::Request &req, segway_msgs::ros_enable_chassis_rotate_cmd::Response &[01;31m[Kres[m[K)
+[1.999s]       |                                                                                         [01;31m[K^~~[m[K
+[1.999s] 
+[1.999s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:363:169:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[1.999s]   363 | chassis_rotate_cmd::Request &req, segway_msgs::ros_enable_chassis_rotate_cmd::Response &res[01;31m[K)[m[K
+[1.999s]       |                                                                                            [01;31m[K^[m[K
+[1.999s] 
+[1.999s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:382:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_get_chassis_rotate_switch_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[1.999s]   382 | bool [01;31m[KChassis[m[K::ros_get_chassis_rotate_switch_cmd_callback(segway_msgs::ros_get_chassis_rotate_switch_cmd::Request &req, segway_msgs::ros_get_chassis_rotate_switch_cmd::Response &res)
+[1.999s]       |      [01;31m[K^~~~~~~[m[K
+[1.999s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:382:71:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_chassis_rotate_switch_cmd[m[K’ has not been declared
+[1.999s]   382 | bool Chassis::ros_get_chassis_rotate_switch_cmd_callback(segway_msgs::[01;31m[Kros_get_chassis_rotate_switch_cmd[m[K::Request &req, segway_msgs::ros_get_chassis_rotate_switch_cmd::Response &res)
+[1.999s]       |                                                                       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.002s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:382:115:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.003s]   382 | ate_switch_cmd_callback(segway_msgs::ros_get_chassis_rotate_switch_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_get_chassis_rotate_switch_cmd::Response &res)
+[2.003s]       |                                                                                  [01;31m[K^~~[m[K
+[2.003s] 
+[2.003s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:382:133:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_chassis_rotate_switch_cmd[m[K’ has not been declared
+[2.003s]   382 | lback(segway_msgs::ros_get_chassis_rotate_switch_cmd::Request &req, segway_msgs::[01;31m[Kros_get_chassis_rotate_switch_cmd[m[K::Response &res)
+[2.003s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.003s] 
+[2.006s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:382:178:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.006s]   382 | ate_switch_cmd::Request &req, segway_msgs::ros_get_chassis_rotate_switch_cmd::Response &[01;31m[Kres[m[K)
+[2.006s]       |                                                                                         [01;31m[K^~~[m[K
+[2.006s] 
+[2.006s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:382:181:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.006s]   382 | ate_switch_cmd::Request &req, segway_msgs::ros_get_chassis_rotate_switch_cmd::Response &res[01;31m[K)[m[K
+[2.006s]       |                                                                                            [01;31m[K^[m[K
+[2.006s] 
+[2.006s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:393:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_clear_chassis_error_code_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.006s]   393 | bool [01;31m[KChassis[m[K::ros_clear_chassis_error_code_cmd_callback(segway_msgs::ros_clear_chassis_error_code_cmd::Request &req, segway_msgs::ros_clear_chassis_error_code_cmd::Response &res)
+[2.006s]       |      [01;31m[K^~~~~~~[m[K
+[2.006s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:393:70:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_clear_chassis_error_code_cmd[m[K’ has not been declared
+[2.006s]   393 | bool Chassis::ros_clear_chassis_error_code_cmd_callback(segway_msgs::[01;31m[Kros_clear_chassis_error_code_cmd[m[K::Request &req, segway_msgs::ros_clear_chassis_error_code_cmd::Response &res)
+[2.006s]       |                                                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.010s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:393:113:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.010s]   393 | _error_code_cmd_callback(segway_msgs::ros_clear_chassis_error_code_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_clear_chassis_error_code_cmd::Response &res)
+[2.010s]       |                                                                                  [01;31m[K^~~[m[K
+[2.010s] 
+[2.010s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:393:131:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_clear_chassis_error_code_cmd[m[K’ has not been declared
+[2.010s]   393 | llback(segway_msgs::ros_clear_chassis_error_code_cmd::Request &req, segway_msgs::[01;31m[Kros_clear_chassis_error_code_cmd[m[K::Response &res)
+[2.010s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.010s] 
+[2.013s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:393:175:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.013s]   393 | _error_code_cmd::Request &req, segway_msgs::ros_clear_chassis_error_code_cmd::Response &[01;31m[Kres[m[K)
+[2.013s]       |                                                                                         [01;31m[K^~~[m[K
+[2.013s] 
+[2.013s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:393:178:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.013s]   393 | _error_code_cmd::Request &req, segway_msgs::ros_clear_chassis_error_code_cmd::Response &res[01;31m[K)[m[K
+[2.013s]       |                                                                                            [01;31m[K^[m[K
+[2.013s] 
+[2.013s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:403:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_get_load_param_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.013s]   403 | bool [01;31m[KChassis[m[K::ros_get_load_param_cmd_callback(segway_msgs::ros_get_load_param_cmd::Request &req, segway_msgs::ros_get_load_param_cmd::Response &res)
+[2.013s]       |      [01;31m[K^~~~~~~[m[K
+[2.013s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:403:60:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_load_param_cmd[m[K’ has not been declared
+[2.013s]   403 | bool Chassis::ros_get_load_param_cmd_callback(segway_msgs::[01;31m[Kros_get_load_param_cmd[m[K::Request &req, segway_msgs::ros_get_load_param_cmd::Response &res)
+[2.013s]       |                                                            [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.017s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:403:93:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.017s]   403 | s::ros_get_load_param_cmd_callback(segway_msgs::ros_get_load_param_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_get_load_param_cmd::Response &res)
+[2.017s]       |                                                                                  [01;31m[K^~~[m[K
+[2.017s] 
+[2.017s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:403:111:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_load_param_cmd[m[K’ has not been declared
+[2.017s]   403 | ram_cmd_callback(segway_msgs::ros_get_load_param_cmd::Request &req, segway_msgs::[01;31m[Kros_get_load_param_cmd[m[K::Response &res)
+[2.017s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.017s] 
+[2.020s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:403:145:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.020s]   403 | s::ros_get_load_param_cmd::Request &req, segway_msgs::ros_get_load_param_cmd::Response &[01;31m[Kres[m[K)
+[2.020s]       |                                                                                         [01;31m[K^~~[m[K
+[2.020s] 
+[2.020s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:403:148:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.020s]   403 | s::ros_get_load_param_cmd::Request &req, segway_msgs::ros_get_load_param_cmd::Response &res[01;31m[K)[m[K
+[2.020s]       |                                                                                            [01;31m[K^[m[K
+[2.020s] 
+[2.020s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:413:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_get_chassis_SN_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.020s]   413 | bool [01;31m[KChassis[m[K::ros_get_chassis_SN_cmd_callback(segway_msgs::ros_get_chassis_SN_cmd::Request &req, segway_msgs::ros_get_chassis_SN_cmd::Response &res)
+[2.020s]       |      [01;31m[K^~~~~~~[m[K
+[2.021s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:413:60:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_chassis_SN_cmd[m[K’ has not been declared
+[2.021s]   413 | bool Chassis::ros_get_chassis_SN_cmd_callback(segway_msgs::[01;31m[Kros_get_chassis_SN_cmd[m[K::Request &req, segway_msgs::ros_get_chassis_SN_cmd::Response &res)
+[2.021s]       |                                                            [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.024s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:413:93:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.024s]   413 | s::ros_get_chassis_SN_cmd_callback(segway_msgs::ros_get_chassis_SN_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_get_chassis_SN_cmd::Response &res)
+[2.024s]       |                                                                                  [01;31m[K^~~[m[K
+[2.024s] 
+[2.024s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:413:111:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_chassis_SN_cmd[m[K’ has not been declared
+[2.024s]   413 | _SN_cmd_callback(segway_msgs::ros_get_chassis_SN_cmd::Request &req, segway_msgs::[01;31m[Kros_get_chassis_SN_cmd[m[K::Response &res)
+[2.024s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.024s] 
+[2.027s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:413:145:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.027s]   413 | s::ros_get_chassis_SN_cmd::Request &req, segway_msgs::ros_get_chassis_SN_cmd::Response &[01;31m[Kres[m[K)
+[2.027s]       |                                                                                         [01;31m[K^~~[m[K
+[2.027s] 
+[2.027s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:413:148:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.027s]   413 | s::ros_get_chassis_SN_cmd::Request &req, segway_msgs::ros_get_chassis_SN_cmd::Response &res[01;31m[K)[m[K
+[2.027s]       |                                                                                            [01;31m[K^[m[K
+[2.027s] 
+[2.028s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:431:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_get_sw_version_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.028s]   431 | bool [01;31m[KChassis[m[K::ros_get_sw_version_cmd_callback(segway_msgs::ros_get_sw_version_cmd::Request &req, segway_msgs::ros_get_sw_version_cmd::Response &res)
+[2.028s]       |      [01;31m[K^~~~~~~[m[K
+[2.028s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:431:60:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_sw_version_cmd[m[K’ has not been declared
+[2.028s]   431 | bool Chassis::ros_get_sw_version_cmd_callback(segway_msgs::[01;31m[Kros_get_sw_version_cmd[m[K::Request &req, segway_msgs::ros_get_sw_version_cmd::Response &res)
+[2.028s]       |                                                            [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.031s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:431:93:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.031s]   431 | s::ros_get_sw_version_cmd_callback(segway_msgs::ros_get_sw_version_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_get_sw_version_cmd::Response &res)
+[2.031s]       |                                                                                  [01;31m[K^~~[m[K
+[2.031s] 
+[2.031s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:431:111:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_sw_version_cmd[m[K’ has not been declared
+[2.031s]   431 | ion_cmd_callback(segway_msgs::ros_get_sw_version_cmd::Request &req, segway_msgs::[01;31m[Kros_get_sw_version_cmd[m[K::Response &res)
+[2.031s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.031s] 
+[2.034s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:431:145:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.034s]   431 | s::ros_get_sw_version_cmd::Request &req, segway_msgs::ros_get_sw_version_cmd::Response &[01;31m[Kres[m[K)
+[2.034s]       |                                                                                         [01;31m[K^~~[m[K
+[2.034s] 
+[2.035s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:431:148:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.035s]   431 | s::ros_get_sw_version_cmd::Request &req, segway_msgs::ros_get_sw_version_cmd::Response &res[01;31m[K)[m[K
+[2.035s]       |                                                                                            [01;31m[K^[m[K
+[2.035s] 
+[2.035s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:445:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_get_vel_max_feedback_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.035s]   445 | bool [01;31m[KChassis[m[K::ros_get_vel_max_feedback_cmd_callback(segway_msgs::ros_get_vel_max_feedback_cmd::Request &req, segway_msgs::ros_get_vel_max_feedback_cmd::Response &res)
+[2.035s]       |      [01;31m[K^~~~~~~[m[K
+[2.035s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:445:66:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_vel_max_feedback_cmd[m[K’ has not been declared
+[2.035s]   445 | bool Chassis::ros_get_vel_max_feedback_cmd_callback(segway_msgs::[01;31m[Kros_get_vel_max_feedback_cmd[m[K::Request &req, segway_msgs::ros_get_vel_max_feedback_cmd::Response &res)
+[2.035s]       |                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.038s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:445:105:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.038s]   445 | el_max_feedback_cmd_callback(segway_msgs::ros_get_vel_max_feedback_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_get_vel_max_feedback_cmd::Response &res)
+[2.038s]       |                                                                                  [01;31m[K^~~[m[K
+[2.038s] 
+[2.038s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:445:123:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_vel_max_feedback_cmd[m[K’ has not been declared
+[2.038s]   445 | d_callback(segway_msgs::ros_get_vel_max_feedback_cmd::Request &req, segway_msgs::[01;31m[Kros_get_vel_max_feedback_cmd[m[K::Response &res)
+[2.038s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.038s] 
+[2.042s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:445:163:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.042s]   445 | el_max_feedback_cmd::Request &req, segway_msgs::ros_get_vel_max_feedback_cmd::Response &[01;31m[Kres[m[K)
+[2.042s]       |                                                                                         [01;31m[K^~~[m[K
+[2.042s] 
+[2.042s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:445:166:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.042s]   445 | el_max_feedback_cmd::Request &req, segway_msgs::ros_get_vel_max_feedback_cmd::Response &res[01;31m[K)[m[K
+[2.042s]       |                                                                                            [01;31m[K^[m[K
+[2.042s] 
+[2.042s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:458:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_set_chassis_buzzer_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.042s]   458 | bool [01;31m[KChassis[m[K::ros_set_chassis_buzzer_cmd_callback(segway_msgs::ros_set_chassis_buzzer_cmd::Request &req, segway_msgs::ros_set_chassis_buzzer_cmd::Response &res)
+[2.042s]       |      [01;31m[K^~~~~~~[m[K
+[2.042s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:458:64:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_chassis_buzzer_cmd[m[K’ has not been declared
+[2.042s]   458 | bool Chassis::ros_set_chassis_buzzer_cmd_callback(segway_msgs::[01;31m[Kros_set_chassis_buzzer_cmd[m[K::Request &req, segway_msgs::ros_set_chassis_buzzer_cmd::Response &res)
+[2.042s]       |                                                                [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.045s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:458:101:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.045s]   458 | et_chassis_buzzer_cmd_callback(segway_msgs::ros_set_chassis_buzzer_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_set_chassis_buzzer_cmd::Response &res)
+[2.045s]       |                                                                                  [01;31m[K^~~[m[K
+[2.045s] 
+[2.045s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:458:119:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_chassis_buzzer_cmd[m[K’ has not been declared
+[2.045s]   458 | cmd_callback(segway_msgs::ros_set_chassis_buzzer_cmd::Request &req, segway_msgs::[01;31m[Kros_set_chassis_buzzer_cmd[m[K::Response &res)
+[2.045s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.045s] 
+[2.050s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:458:157:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.050s]   458 | et_chassis_buzzer_cmd::Request &req, segway_msgs::ros_set_chassis_buzzer_cmd::Response &[01;31m[Kres[m[K)
+[2.050s]       |                                                                                         [01;31m[K^~~[m[K
+[2.050s] 
+[2.050s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:458:160:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.050s]   458 | et_chassis_buzzer_cmd::Request &req, segway_msgs::ros_set_chassis_buzzer_cmd::Response &res[01;31m[K)[m[K
+[2.050s]       |                                                                                            [01;31m[K^[m[K
+[2.050s] 
+[2.050s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:474:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_set_chassis_enable_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.050s]   474 | bool [01;31m[KChassis[m[K::ros_set_chassis_enable_cmd_callback(segway_msgs::ros_set_chassis_enable_cmd::Request &req, segway_msgs::ros_set_chassis_enable_cmd::Response &res)
+[2.050s]       |      [01;31m[K^~~~~~~[m[K
+[2.050s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:474:64:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_chassis_enable_cmd[m[K’ has not been declared
+[2.050s]   474 | bool Chassis::ros_set_chassis_enable_cmd_callback(segway_msgs::[01;31m[Kros_set_chassis_enable_cmd[m[K::Request &req, segway_msgs::ros_set_chassis_enable_cmd::Response &res)
+[2.050s]       |                                                                [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.053s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:474:101:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.054s]   474 | et_chassis_enable_cmd_callback(segway_msgs::ros_set_chassis_enable_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_set_chassis_enable_cmd::Response &res)
+[2.054s]       |                                                                                  [01;31m[K^~~[m[K
+[2.054s] 
+[2.054s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:474:119:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_chassis_enable_cmd[m[K’ has not been declared
+[2.054s]   474 | cmd_callback(segway_msgs::ros_set_chassis_enable_cmd::Request &req, segway_msgs::[01;31m[Kros_set_chassis_enable_cmd[m[K::Response &res)
+[2.054s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.054s] 
+[2.057s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:474:157:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.057s]   474 | et_chassis_enable_cmd::Request &req, segway_msgs::ros_set_chassis_enable_cmd::Response &[01;31m[Kres[m[K)
+[2.057s]       |                                                                                         [01;31m[K^~~[m[K
+[2.057s] 
+[2.057s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:474:160:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.057s]   474 | et_chassis_enable_cmd::Request &req, segway_msgs::ros_set_chassis_enable_cmd::Response &res[01;31m[K)[m[K
+[2.057s]       |                                                                                            [01;31m[K^[m[K
+[2.057s] 
+[2.057s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:490:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_set_chassis_poweroff_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.057s]   490 | bool [01;31m[KChassis[m[K::ros_set_chassis_poweroff_cmd_callback(segway_msgs::ros_set_chassis_poweroff_cmd::Request &req, segway_msgs::ros_set_chassis_poweroff_cmd::Response &res)
+[2.057s]       |      [01;31m[K^~~~~~~[m[K
+[2.057s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:490:66:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_chassis_poweroff_cmd[m[K’ has not been declared
+[2.057s]   490 | bool Chassis::ros_set_chassis_poweroff_cmd_callback(segway_msgs::[01;31m[Kros_set_chassis_poweroff_cmd[m[K::Request &req, segway_msgs::ros_set_chassis_poweroff_cmd::Response &res)
+[2.057s]       |                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.060s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:490:105:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.061s]   490 | hassis_poweroff_cmd_callback(segway_msgs::ros_set_chassis_poweroff_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_set_chassis_poweroff_cmd::Response &res)
+[2.061s]       |                                                                                  [01;31m[K^~~[m[K
+[2.061s] 
+[2.061s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:490:123:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_chassis_poweroff_cmd[m[K’ has not been declared
+[2.061s]   490 | d_callback(segway_msgs::ros_set_chassis_poweroff_cmd::Request &req, segway_msgs::[01;31m[Kros_set_chassis_poweroff_cmd[m[K::Response &res)
+[2.061s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.061s] 
+[2.065s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:490:163:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.065s]   490 | hassis_poweroff_cmd::Request &req, segway_msgs::ros_set_chassis_poweroff_cmd::Response &[01;31m[Kres[m[K)
+[2.065s]       |                                                                                         [01;31m[K^~~[m[K
+[2.065s] 
+[2.065s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:490:166:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.065s]   490 | hassis_poweroff_cmd::Request &req, segway_msgs::ros_set_chassis_poweroff_cmd::Response &res[01;31m[K)[m[K
+[2.065s]       |                                                                                            [01;31m[K^[m[K
+[2.065s] 
+[2.065s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:502:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_set_load_param_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.065s]   502 | bool [01;31m[KChassis[m[K::ros_set_load_param_cmd_callback(segway_msgs::ros_set_load_param_cmd::Request &req, segway_msgs::ros_set_load_param_cmd::Response &res)
+[2.065s]       |      [01;31m[K^~~~~~~[m[K
+[2.065s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:502:60:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_load_param_cmd[m[K’ has not been declared
+[2.065s]   502 | bool Chassis::ros_set_load_param_cmd_callback(segway_msgs::[01;31m[Kros_set_load_param_cmd[m[K::Request &req, segway_msgs::ros_set_load_param_cmd::Response &res)
+[2.065s]       |                                                            [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.069s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:502:93:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.069s]   502 | s::ros_set_load_param_cmd_callback(segway_msgs::ros_set_load_param_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_set_load_param_cmd::Response &res)
+[2.069s]       |                                                                                  [01;31m[K^~~[m[K
+[2.069s] 
+[2.069s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:502:111:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_load_param_cmd[m[K’ has not been declared
+[2.069s]   502 | ram_cmd_callback(segway_msgs::ros_set_load_param_cmd::Request &req, segway_msgs::[01;31m[Kros_set_load_param_cmd[m[K::Response &res)
+[2.069s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.069s] 
+[2.073s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:502:145:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.073s]   502 | s::ros_set_load_param_cmd::Request &req, segway_msgs::ros_set_load_param_cmd::Response &[01;31m[Kres[m[K)
+[2.073s]       |                                                                                         [01;31m[K^~~[m[K
+[2.073s] 
+[2.073s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:502:148:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.073s]   502 | s::ros_set_load_param_cmd::Request &req, segway_msgs::ros_set_load_param_cmd::Response &res[01;31m[K)[m[K
+[2.073s]       |                                                                                            [01;31m[K^[m[K
+[2.073s] 
+[2.073s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:515:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_set_vel_max_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.073s]   515 | bool [01;31m[KChassis[m[K::ros_set_vel_max_cmd_callback(segway_msgs::ros_set_vel_max_cmd::Request &req, segway_msgs::ros_set_vel_max_cmd::Response &res)
+[2.073s]       |      [01;31m[K^~~~~~~[m[K
+[2.073s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:515:57:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_vel_max_cmd[m[K’ has not been declared
+[2.073s]   515 | bool Chassis::ros_set_vel_max_cmd_callback(segway_msgs::[01;31m[Kros_set_vel_max_cmd[m[K::Request &req, segway_msgs::ros_set_vel_max_cmd::Response &res)
+[2.073s]       |                                                         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[2.076s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:515:87:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.076s]   515 | Chassis::ros_set_vel_max_cmd_callback(segway_msgs::ros_set_vel_max_cmd::Request &[01;31m[Kreq[m[K, segway_msgs::ros_set_vel_max_cmd::Response &res)
+[2.076s]       |                                                                                  [01;31m[K^~~[m[K
+[2.076s] 
+[2.076s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:515:105:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_vel_max_cmd[m[K’ has not been declared
+[2.076s]   515 | el_max_cmd_callback(segway_msgs::ros_set_vel_max_cmd::Request &req, segway_msgs::[01;31m[Kros_set_vel_max_cmd[m[K::Response &res)
+[2.076s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[2.076s] 
+[2.080s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:515:136:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.080s]   515 | ay_msgs::ros_set_vel_max_cmd::Request &req, segway_msgs::ros_set_vel_max_cmd::Response &[01;31m[Kres[m[K)
+[2.080s]       |                                                                                         [01;31m[K^~~[m[K
+[2.080s] 
+[2.080s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:515:139:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.080s]   515 | ay_msgs::ros_set_vel_max_cmd::Request &req, segway_msgs::ros_set_vel_max_cmd::Response &res[01;31m[K)[m[K
+[2.080s]       |                                                                                            [01;31m[K^[m[K
+[2.080s] 
+[2.080s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:529:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_reset_host_power_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.080s]   529 | bool [01;31m[KChassis[m[K::ros_reset_host_power_cmd_callback(segway_msgs::ros_reset_host_power_cmd::Request & req, segway_msgs::ros_reset_host_power_cmd::Response &res)
+[2.080s]       |      [01;31m[K^~~~~~~[m[K
+[2.080s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:529:62:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_reset_host_power_cmd[m[K’ has not been declared
+[2.080s]   529 | bool Chassis::ros_reset_host_power_cmd_callback(segway_msgs::[01;31m[Kros_reset_host_power_cmd[m[K::Request & req, segway_msgs::ros_reset_host_power_cmd::Response &res)
+[2.080s]       |                                                              [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.084s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:529:98:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.084s]   529 | s_reset_host_power_cmd_callback(segway_msgs::ros_reset_host_power_cmd::Request & [01;31m[Kreq[m[K, segway_msgs::ros_reset_host_power_cmd::Response &res)
+[2.084s]       |                                                                                  [01;31m[K^~~[m[K
+[2.084s] 
+[2.084s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:529:116:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_reset_host_power_cmd[m[K’ has not been declared
+[2.084s]   529 | _cmd_callback(segway_msgs::ros_reset_host_power_cmd::Request & req, segway_msgs::[01;31m[Kros_reset_host_power_cmd[m[K::Response &res)
+[2.084s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.084s] 
+[2.087s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:529:152:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.087s]   529 | s_reset_host_power_cmd::Request & req, segway_msgs::ros_reset_host_power_cmd::Response &[01;31m[Kres[m[K)
+[2.087s]       |                                                                                         [01;31m[K^~~[m[K
+[2.087s] 
+[2.087s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:529:155:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.087s]   529 | s_reset_host_power_cmd::Request & req, segway_msgs::ros_reset_host_power_cmd::Response &res[01;31m[K)[m[K
+[2.087s]       |                                                                                            [01;31m[K^[m[K
+[2.087s] 
+[2.087s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:537:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_start_chassis_left_rotate_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.087s]   537 | bool [01;31m[KChassis[m[K::ros_start_chassis_left_rotate_cmd_callback(segway_msgs::ros_start_chassis_left_rotate_cmd::Request & req, segway_msgs::ros_start_chassis_left_rotate_cmd::Response &res)
+[2.087s]       |      [01;31m[K^~~~~~~[m[K
+[2.087s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:537:71:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_start_chassis_left_rotate_cmd[m[K’ has not been declared
+[2.088s]   537 | bool Chassis::ros_start_chassis_left_rotate_cmd_callback(segway_msgs::[01;31m[Kros_start_chassis_left_rotate_cmd[m[K::Request & req, segway_msgs::ros_start_chassis_left_rotate_cmd::Response &res)
+[2.088s]       |                                                                       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.091s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:537:116:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.091s]   537 | ft_rotate_cmd_callback(segway_msgs::ros_start_chassis_left_rotate_cmd::Request & [01;31m[Kreq[m[K, segway_msgs::ros_start_chassis_left_rotate_cmd::Response &res)
+[2.091s]       |                                                                                  [01;31m[K^~~[m[K
+[2.091s] 
+[2.091s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:537:134:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_start_chassis_left_rotate_cmd[m[K’ has not been declared
+[2.091s]   537 | back(segway_msgs::ros_start_chassis_left_rotate_cmd::Request & req, segway_msgs::[01;31m[Kros_start_chassis_left_rotate_cmd[m[K::Response &res)
+[2.091s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.091s] 
+[2.095s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:537:179:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.095s]   537 | ft_rotate_cmd::Request & req, segway_msgs::ros_start_chassis_left_rotate_cmd::Response &[01;31m[Kres[m[K)
+[2.095s]       |                                                                                         [01;31m[K^~~[m[K
+[2.095s] 
+[2.095s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:537:182:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.095s]   537 | ft_rotate_cmd::Request & req, segway_msgs::ros_start_chassis_left_rotate_cmd::Response &res[01;31m[K)[m[K
+[2.095s]       |                                                                                            [01;31m[K^[m[K
+[2.095s] 
+[2.095s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:546:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_start_chassis_right_rotate_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.095s]   546 | bool [01;31m[KChassis[m[K::ros_start_chassis_right_rotate_cmd_callback(segway_msgs::ros_start_chassis_right_rotate_cmd::Request & req, segway_msgs::ros_start_chassis_right_rotate_cmd::Response &res)
+[2.095s]       |      [01;31m[K^~~~~~~[m[K
+[2.095s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:546:72:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_start_chassis_right_rotate_cmd[m[K’ has not been declared
+[2.095s]   546 | bool Chassis::ros_start_chassis_right_rotate_cmd_callback(segway_msgs::[01;31m[Kros_start_chassis_right_rotate_cmd[m[K::Request & req, segway_msgs::ros_start_chassis_right_rotate_cmd::Response &res)
+[2.095s]       |                                                                        [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.099s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:546:118:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.099s]   546 | t_rotate_cmd_callback(segway_msgs::ros_start_chassis_right_rotate_cmd::Request & [01;31m[Kreq[m[K, segway_msgs::ros_start_chassis_right_rotate_cmd::Response &res)
+[2.099s]       |                                                                                  [01;31m[K^~~[m[K
+[2.099s] 
+[2.099s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:546:136:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_start_chassis_right_rotate_cmd[m[K’ has not been declared
+[2.099s]   546 | ack(segway_msgs::ros_start_chassis_right_rotate_cmd::Request & req, segway_msgs::[01;31m[Kros_start_chassis_right_rotate_cmd[m[K::Response &res)
+[2.099s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.099s] 
+[2.102s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:546:182:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.103s]   546 | t_rotate_cmd::Request & req, segway_msgs::ros_start_chassis_right_rotate_cmd::Response &[01;31m[Kres[m[K)
+[2.103s]       |                                                                                         [01;31m[K^~~[m[K
+[2.103s] 
+[2.103s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:546:185:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.103s]   546 | t_rotate_cmd::Request & req, segway_msgs::ros_start_chassis_right_rotate_cmd::Response &res[01;31m[K)[m[K
+[2.103s]       |                                                                                            [01;31m[K^[m[K
+[2.103s] 
+[2.103s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:555:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_stop_chassis_rotate_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.103s]   555 | bool [01;31m[KChassis[m[K::ros_stop_chassis_rotate_cmd_callback(segway_msgs::ros_stop_chassis_rotate_cmd::Request & req, segway_msgs::ros_stop_chassis_rotate_cmd::Response &res)
+[2.103s]       |      [01;31m[K^~~~~~~[m[K
+[2.103s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:555:65:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_stop_chassis_rotate_cmd[m[K’ has not been declared
+[2.103s]   555 | bool Chassis::ros_stop_chassis_rotate_cmd_callback(segway_msgs::[01;31m[Kros_stop_chassis_rotate_cmd[m[K::Request & req, segway_msgs::ros_stop_chassis_rotate_cmd::Response &res)
+[2.103s]       |                                                                 [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.106s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:555:104:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.106s]   555 | _chassis_rotate_cmd_callback(segway_msgs::ros_stop_chassis_rotate_cmd::Request & [01;31m[Kreq[m[K, segway_msgs::ros_stop_chassis_rotate_cmd::Response &res)
+[2.106s]       |                                                                                  [01;31m[K^~~[m[K
+[2.106s] 
+[2.106s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:555:122:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_stop_chassis_rotate_cmd[m[K’ has not been declared
+[2.106s]   555 | d_callback(segway_msgs::ros_stop_chassis_rotate_cmd::Request & req, segway_msgs::[01;31m[Kros_stop_chassis_rotate_cmd[m[K::Response &res)
+[2.106s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.106s] 
+[2.110s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:555:161:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.110s]   555 | _chassis_rotate_cmd::Request & req, segway_msgs::ros_stop_chassis_rotate_cmd::Response &[01;31m[Kres[m[K)
+[2.110s]       |                                                                                         [01;31m[K^~~[m[K
+[2.110s] 
+[2.110s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:555:164:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.110s]   555 | _chassis_rotate_cmd::Request & req, segway_msgs::ros_stop_chassis_rotate_cmd::Response &res[01;31m[K)[m[K
+[2.110s]       |                                                                                            [01;31m[K^[m[K
+[2.110s] 
+[2.110s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:564:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_get_rotate_function_cfg_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.110s]   564 | bool [01;31m[KChassis[m[K::ros_get_rotate_function_cfg_cmd_callback(segway_msgs::ros_get_rotate_function_cfg_cmd::Request & req, segway_msgs::ros_get_rotate_function_cfg_cmd::Response &res)
+[2.110s]       |      [01;31m[K^~~~~~~[m[K
+[2.110s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:564:69:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_rotate_function_cfg_cmd[m[K’ has not been declared
+[2.110s]   564 | bool Chassis::ros_get_rotate_function_cfg_cmd_callback(segway_msgs::[01;31m[Kros_get_rotate_function_cfg_cmd[m[K::Request & req, segway_msgs::ros_get_rotate_function_cfg_cmd::Response &res)
+[2.110s]       |                                                                     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.113s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:564:112:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.113s]   564 | unction_cfg_cmd_callback(segway_msgs::ros_get_rotate_function_cfg_cmd::Request & [01;31m[Kreq[m[K, segway_msgs::ros_get_rotate_function_cfg_cmd::Response &res)
+[2.113s]       |                                                                                  [01;31m[K^~~[m[K
+[2.113s] 
+[2.113s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:564:130:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_rotate_function_cfg_cmd[m[K’ has not been declared
+[2.113s]   564 | llback(segway_msgs::ros_get_rotate_function_cfg_cmd::Request & req, segway_msgs::[01;31m[Kros_get_rotate_function_cfg_cmd[m[K::Response &res)
+[2.113s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.113s] 
+[2.117s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:564:173:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.117s]   564 | unction_cfg_cmd::Request & req, segway_msgs::ros_get_rotate_function_cfg_cmd::Response &[01;31m[Kres[m[K)
+[2.117s]       |                                                                                         [01;31m[K^~~[m[K
+[2.117s] 
+[2.117s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:564:176:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.117s]   564 | unction_cfg_cmd::Request & req, segway_msgs::ros_get_rotate_function_cfg_cmd::Response &res[01;31m[K)[m[K
+[2.117s]       |                                                                                            [01;31m[K^[m[K
+[2.117s] 
+[2.117s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:570:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_set_cfg_rotate_function_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.117s]   570 | bool [01;31m[KChassis[m[K::ros_set_cfg_rotate_function_cmd_callback(segway_msgs::ros_set_cfg_rotate_function_cmd::Request & req, segway_msgs::ros_set_cfg_rotate_function_cmd::Response &res)
+[2.117s]       |      [01;31m[K^~~~~~~[m[K
+[2.117s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:570:69:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_cfg_rotate_function_cmd[m[K’ has not been declared
+[2.117s]   570 | bool Chassis::ros_set_cfg_rotate_function_cmd_callback(segway_msgs::[01;31m[Kros_set_cfg_rotate_function_cmd[m[K::Request & req, segway_msgs::ros_set_cfg_rotate_function_cmd::Response &res)
+[2.117s]       |                                                                     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.120s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:570:112:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.120s]   570 | te_function_cmd_callback(segway_msgs::ros_set_cfg_rotate_function_cmd::Request & [01;31m[Kreq[m[K, segway_msgs::ros_set_cfg_rotate_function_cmd::Response &res)
+[2.120s]       |                                                                                  [01;31m[K^~~[m[K
+[2.120s] 
+[2.120s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:570:130:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_set_cfg_rotate_function_cmd[m[K’ has not been declared
+[2.120s]   570 | llback(segway_msgs::ros_set_cfg_rotate_function_cmd::Request & req, segway_msgs::[01;31m[Kros_set_cfg_rotate_function_cmd[m[K::Response &res)
+[2.120s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.120s] 
+[2.124s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:570:173:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.124s]   570 | te_function_cmd::Request & req, segway_msgs::ros_set_cfg_rotate_function_cmd::Response &[01;31m[Kres[m[K)
+[2.124s]       |                                                                                         [01;31m[K^~~[m[K
+[2.124s] 
+[2.124s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:570:176:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.124s]   570 | te_function_cmd::Request & req, segway_msgs::ros_set_cfg_rotate_function_cmd::Response &res[01;31m[K)[m[K
+[2.124s]       |                                                                                            [01;31m[K^[m[K
+[2.124s] 
+[2.124s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:581:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbool robot::Chassis::ros_get_host_and_chassis_match_cmd_callback[m[K’ is not a static data member of ‘[01m[Kclass robot::Chassis[m[K’
+[2.124s]   581 | bool [01;31m[KChassis[m[K::ros_get_host_and_chassis_match_cmd_callback(segway_msgs::ros_get_host_and_chassis_match_cmd::Request & req, segway_msgs::ros_get_host_and_chassis_match_cmd::Response &res)
+[2.124s]       |      [01;31m[K^~~~~~~[m[K
+[2.124s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:581:72:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_host_and_chassis_match_cmd[m[K’ has not been declared
+[2.124s]   581 | bool Chassis::ros_get_host_and_chassis_match_cmd_callback(segway_msgs::[01;31m[Kros_get_host_and_chassis_match_cmd[m[K::Request & req, segway_msgs::ros_get_host_and_chassis_match_cmd::Response &res)
+[2.124s]       |                                                                        [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.127s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:581:118:[m[K [01;31m[Kerror: [m[K‘[01m[Kreq[m[K’ was not declared in this scope
+[2.127s]   581 | is_match_cmd_callback(segway_msgs::ros_get_host_and_chassis_match_cmd::Request & [01;31m[Kreq[m[K, segway_msgs::ros_get_host_and_chassis_match_cmd::Response &res)
+[2.127s]       |                                                                                  [01;31m[K^~~[m[K
+[2.127s] 
+[2.127s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:581:136:[m[K [01;31m[Kerror: [m[K‘[01m[Ksegway_msgs::ros_get_host_and_chassis_match_cmd[m[K’ has not been declared
+[2.127s]   581 | ack(segway_msgs::ros_get_host_and_chassis_match_cmd::Request & req, segway_msgs::[01;31m[Kros_get_host_and_chassis_match_cmd[m[K::Response &res)
+[2.127s]       |                                                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.127s] 
+[2.131s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:581:182:[m[K [01;31m[Kerror: [m[K‘[01m[Kres[m[K’ was not declared in this scope
+[2.131s]   581 | is_match_cmd::Request & req, segway_msgs::ros_get_host_and_chassis_match_cmd::Response &[01;31m[Kres[m[K)
+[2.131s]       |                                                                                         [01;31m[K^~~[m[K
+[2.131s] 
+[2.131s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:581:185:[m[K [01;31m[Kerror: [m[Kexpression list treated as compound expression in initializer [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.131s]   581 | is_match_cmd::Request & req, segway_msgs::ros_get_host_and_chassis_match_cmd::Response &res[01;31m[K)[m[K
+[2.131s]       |                                                                                            [01;31m[K^[m[K
+[2.131s] 
+[2.131s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:[m[K In static member function ‘[01m[Kstatic void robot::Chassis::chassis_send_event_callback(int)[m[K’:
+[2.131s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:590:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kchassis_send_event[m[K’ is not a member of ‘[01m[Ksegway_msgs[m[K’
+[2.131s]   590 |     segway_msgs::[01;31m[Kchassis_send_event[m[K chassis_send_event_srv;
+[2.131s]       |                  [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[2.131s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:592:28:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing SharedPtr = class std::shared_ptr<rclcpp::Client<segway_msgs::srv::ChassisSendEvent> >[m[K’ {aka ‘[01m[Kclass std::shared_ptr<rclcpp::Client<segway_msgs::srv::ChassisSendEvent> >[m[K’} has no member named ‘[01m[Krequest[m[K’; did you mean ‘[01m[Kreset[m[K’?
+[2.131s]   592 |     chassis_send_event_srv.[01;31m[Krequest[m[K.chassis_send_event_id = (int16_t)event_no;
+[2.131s]       |                            [01;31m[K^~~~~~~[m[K
+[2.131s]       |                            [32m[Kreset[m[K
+[2.139s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:593:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kchassis_send_event_srv_client[m[K’ was not declared in this scope; did you mean ‘[01m[Kchassis_send_event_srv[m[K’?
+[2.139s]   593 |     if ([01;31m[Kchassis_send_event_srv_client[m[K.call(chassis_send_event_srv))
+[2.139s]       |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.139s]       |         [32m[Kchassis_send_event_srv[m[K
+[2.139s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:595:130:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing SharedPtr = class std::shared_ptr<rclcpp::Client<segway_msgs::srv::ChassisSendEvent> >[m[K’ {aka ‘[01m[Kclass std::shared_ptr<rclcpp::Client<segway_msgs::srv::ChassisSendEvent> >[m[K’} has no member named ‘[01m[Krequest[m[K’; did you mean ‘[01m[Kreset[m[K’?
+[2.139s]   595 | hassis_send_event_srv.request.chassis_send_event_id: %d", chassis_send_event_srv.[01;31m[Krequest[m[K.chassis_send_event_id);
+[2.139s]       |                                                                                  [01;31m[K^~~~~~~[m[K
+[2.139s]       |                                                                                  [32m[Kreset[m[K
+[2.143s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:595:9:[m[K [01;31m[Kerror: [m[K‘[01m[KROS_INFO[m[K’ was not declared in this scope
+[2.143s]   595 |         [01;31m[KROS_INFO[m[K("send chassis_send_event_srv, chassis_send_event_srv.request.chassis_send_event_id: %d", chassis_send_event_srv.request.chassis_send_event_id);
+[2.143s]       |         [01;31m[K^~~~~~~~[m[K
+[2.143s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:596:128:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing SharedPtr = class std::shared_ptr<rclcpp::Client<segway_msgs::srv::ChassisSendEvent> >[m[K’ {aka ‘[01m[Kclass std::shared_ptr<rclcpp::Client<segway_msgs::srv::ChassisSendEvent> >[m[K’} has no member named ‘[01m[Kresponse[m[K’
+[2.143s]   596 | rv, chassis_send_event_srv.response.ros_is_received: %d", chassis_send_event_srv.[01;31m[Kresponse[m[K.ros_is_received);
+[2.143s]       |                                                                                  [01;31m[K^~~~~~~~[m[K
+[2.143s] 
+[2.148s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:600:9:[m[K [01;31m[Kerror: [m[K‘[01m[KROS_ERROR[m[K’ was not declared in this scope
+[2.148s]   600 |         [01;31m[KROS_ERROR[m[K("Failed to call service chassis_send_event_srv");
+[2.148s]       |         [01;31m[K^~~~~~~~~[m[K
+[2.149s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:[m[K In member function ‘[01m[Kvoid robot::Chassis::PubOdomToRosOdom(Odometry)[m[K’:
+[2.149s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:623:14:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing SharedPtr = class std::shared_ptr<rclcpp::Publisher<nav_msgs::msg::Odometry_<std::allocator<void> > > >[m[K’ {aka ‘[01m[Kclass std::shared_ptr<rclcpp::Publisher<nav_msgs::msg::Odometry_<std::allocator<void> > > >[m[K’} has no member named ‘[01m[Kpublish[m[K’
+[2.149s]   623 |     Odom_pub.[01;31m[Kpublish[m[K(ROS_odom);
+[2.149s]       |              [01;31m[K^~~~~~~[m[K
+[2.149s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:[m[K In member function ‘[01m[Kvoid robot::Chassis::PubImuToRosImu()[m[K’:
+[2.149s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:629:20:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing _header_type = struct std_msgs::msg::Header_<std::allocator<void> >[m[K’ {aka ‘[01m[Kstruct std_msgs::msg::Header_<std::allocator<void> >[m[K’} has no member named ‘[01m[Kseq[m[K’
+[2.149s]   629 |     ros_imu.header.[01;31m[Kseq[m[K++;
+[2.149s]       |                    [01;31m[K^~~[m[K
+[2.149s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:638:13:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing SharedPtr = class std::shared_ptr<rclcpp::Publisher<sensor_msgs::msg::Imu_<std::allocator<void> > > >[m[K’ {aka ‘[01m[Kclass std::shared_ptr<rclcpp::Publisher<sensor_msgs::msg::Imu_<std::allocator<void> > > >[m[K’} has no member named ‘[01m[Kpublish[m[K’
+[2.149s]   638 |     Imu_pub.[01;31m[Kpublish[m[K(ros_imu);
+[2.149s]       |             [01;31m[K^~~~~~~[m[K
+[2.150s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:[m[K At global scope:
+[2.150s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:643:38:[m[K [01;31m[Kerror: [m[K‘[01m[Kros[m[K’ does not name a type
+[2.150s]   643 | void Chassis::TimeUpdate1000Hz(const [01;31m[Kros[m[K::TimerEvent &event)
+[2.150s]       |                                      [01;31m[K^~~[m[K
+[2.150s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:643:54:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K&[m[K’ token
+[2.150s]   643 | void Chassis::TimeUpdate1000Hz(const ros::TimerEvent [01;31m[K&[m[Kevent)
+[2.150s]       |                                                      [01;31m[K^[m[K
+[2.150s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:643:53:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K&[m[K’ token
+[2.150s]   643 | void Chassis::TimeUpdate1000Hz[34m[K([m[Kconst ros::TimerEvent[01;31m[K [m[K[32m[K&[m[Kevent)
+[2.150s]       |                               [34m[K~[m[K                     [01;31m[K^[m[K[32m[K~[m[K
+[2.150s]       |                                                     [32m[K)[m[K
+[2.150s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:643:55:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[Kevent[m[K’
+[2.150s]   643 | void Chassis::TimeUpdate1000Hz(const ros::TimerEvent &[01;31m[Kevent[m[K)
+[2.150s]       |                                                       [01;31m[K^~~~~[m[K
+[2.151s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:756:35:[m[K [01;31m[Kerror: [m[K‘[01m[Kros[m[K’ does not name a type
+[2.151s]   756 | void Chassis::TimeUpdate1Hz(const [01;31m[Kros[m[K::TimerEvent &event)
+[2.151s]       |                                   [01;31m[K^~~[m[K
+[2.151s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:756:51:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K&[m[K’ token
+[2.151s]   756 | void Chassis::TimeUpdate1Hz(const ros::TimerEvent [01;31m[K&[m[Kevent)
+[2.151s]       |                                                   [01;31m[K^[m[K
+[2.151s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:756:50:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K&[m[K’ token
+[2.151s]   756 | void Chassis::TimeUpdate1Hz[34m[K([m[Kconst ros::TimerEvent[01;31m[K [m[K[32m[K&[m[Kevent)
+[2.151s]       |                            [34m[K~[m[K                     [01;31m[K^[m[K[32m[K~[m[K
+[2.151s]       |                                                  [32m[K)[m[K
+[2.151s] [01m[K/home/parallels/ros2_ws/src/segway_ros2/segwayrmp/src/robot.cpp:756:52:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[Kevent[m[K’
+[2.151s]   756 | void Chassis::TimeUpdate1Hz(const ros::TimerEvent &[01;31m[Kevent[m[K)
+[2.151s]       |                                                    [01;31m[K^~~~~[m[K
+[6.233s] gmake[2]: *** [CMakeFiles/SmartCar.dir/build.make:90: CMakeFiles/SmartCar.dir/src/robot.cpp.o] Error 1
+[6.233s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/SmartCar.dir/all] Error 2
+[6.233s] gmake: *** [Makefile:146: all] Error 2
+[6.236s] Invoked command in '/home/parallels/ros2_ws/src/segway_ros2/build/segwayrmp' returned '2': AMENT_PREFIX_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs LD_LIBRARY_PATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/parallels/ros2_ws/src/segway_ros2/install/segway_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/parallels/ros2_ws/src/segway_ros2/build/segwayrmp -- -j4 -l4

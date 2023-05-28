@@ -18,7 +18,6 @@ find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
-find_package(segway_msgs REQUIRED)
 
 include_directories(include
   ${rclcpp_INCLUDE_DIRS}
@@ -27,7 +26,8 @@ include_directories(include
   ${tf2_INCLUDE_DIRS}
   ${nav_msgs_INCLUDE_DIRS}
   ${sensor_msgs_INCLUDE_DIRS}
-  ${segway_msgs_INCLUDE_DIRS}
+  ${CMAKE_CURRENT_SOURCE_DIR}/segwayrmp/include  # This line is added
+
 )
 
 if(CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")

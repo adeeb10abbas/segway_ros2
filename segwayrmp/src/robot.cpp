@@ -2,6 +2,9 @@
 #include <functional>
 #include <sensor_msgs/msg/imu.hpp>
 #include "Ge_encoder_odometry.h"
+#include <tf2/LinearMath/Quaternion.h>
+#include <geometry_msgs/msg/quaternion.hpp>
+#include <tf2/LinearMath/Matrix3x3.h>
 #if 1
 #define ODOM_BY_CHASSIS
 
@@ -571,18 +574,20 @@ bool Chassis::ros_get_vel_max_feedback_cmd_callback(const std::shared_ptr<segway
 
 void Chassis::chassis_send_event_callback(int event_no)
 {
-    segway_msgs::chassis_send_event chassis_send_event_srv;
+    segway_msgs::srv::ChassisSendEvent chassis_send_event_srv;
 
-    chassis_send_event_srv.request.chassis_send_event_id = (int16_t)event_no;
-    if (chassis_send_event_srv_client.call(chassis_send_event_srv))
-    {
-        // ROS_INFO("send chassis_send_event_srv, chassis_send_event_srv.request.chassis_send_event_id: %d", chassis_send_event_srv.request.chassis_send_event_id);
-        // ROS_INFO("receive chassis_send_event_srv, chassis_send_event_srv.response.ros_is_received: %d", chassis_send_event_srv.response.ros_is_received);
-    }
-    else
-    {
-        // ROS_ERROR("Failed to call service chassis_send_event_srv");
-    }
+    auto request = std::make_shared<segway_msgs::srv::ChassisSendEvent::Request>();
+    request->chassis_sendevent_id = (int16_t)event_no;
+
+    // if (chassis_send_event_srv.call(chassis_send_event_srv))
+    // {
+    //     // ROS_INFO("send chassis_send_event_srv, chassis_send_event_srv.request.chassis_send_event_id: %d", chassis_send_event_srv.request.chassis_send_event_id);
+    //     // ROS_INFO("receive chassis_send_event_srv, chassis_send_event_srv.response.ros_is_received: %d", chassis_send_event_srv.response.ros_is_received);
+    // }
+    // else
+    // {
+    //     // ROS_ERROR("Failed to call service chassis_send_event_srv");
+    // }
 }
 
 void Chassis::PubOdomToRosOdom(Odometry odom_data)
@@ -604,13 +609,14 @@ void Chassis::PubOdomToRosOdom(Odometry odom_data)
     ROS_odom.twist.twist.angular.x = 0;
     ROS_odom.twist.twist.angular.y = 0;
     ROS_odom.twist.twist.angular.z = odom_data.twist_.w_z;
-    Odom_pub.publish(ROS_odom);
+    Odom_pub->publish(ROS_odom);
 }
 
 void Chassis::PubImuToRosImu(void)
 {
+    static uint32_t sequence = 0; // Add this line to maintain sequence number
     uint64_t imu_stamp = ImuGyr_TimeStamp > ImuAcc_TimeStamp ? ImuGyr_TimeStamp : ImuAcc_TimeStamp;
-    ros_imu.header.seq++;
+    sequence++; // increment the sequence number here
     ros_imu.header.stamp = timestamp2rostime(imu_stamp);
     ros_imu.header.frame_id = "robot_imu";
     ros_imu.angular_velocity.x = (double)ImuGyrData.gyr[0] / 900.0;           //* IMU_ANGULAR_VEL_CONVERT_UINIT;
@@ -619,10 +625,11 @@ void Chassis::PubImuToRosImu(void)
     ros_imu.linear_acceleration.x = (double)ImuAccData.acc[0] / 4000.0 * 9.8; // * IMU_LINEAR_VEL_CONVERT_UINIT;
     ros_imu.linear_acceleration.y = (double)ImuAccData.acc[1] / 4000.0 * 9.8; // * IMU_LINEAR_VEL_CONVERT_UINIT;
     ros_imu.linear_acceleration.z = (double)ImuAccData.acc[2] / 4000.0 * 9.8; // * IMU_LINEAR_VEL_CONVERT_UINIT;
-    Imu_pub.publish(ros_imu);
+    Imu_pub->publish(ros_imu);
     // ROS_INFO("ros_imu:angular_vel:%f  rad/s   linear_acc:%f  m/s2",
     //             ros_imu.angular_velocity.z, ros_imu.linear_acceleration.x);
 }
+
 
 void Chassis::TimeUpdate1000Hz()
 {
@@ -642,7 +649,7 @@ void Chassis::TimeUpdate1000Hz()
         speed_fb.rr_speed /= LINE_SPEED_TRANS_GAIN_MPS; //change the units from m/h to m/s
         speed_fb.speed_timestamp = Speed_TimeStamp;
         Speed_update = 0;
-        speed_fb_pub.publish(speed_fb);
+        speed_fb_pub->publish(speed_fb);
         // ROS_INFO("###chassis speed_fb, l_speed:%f m/s, r_speed:%f m/s", speed_fb.l_speed, speed_fb.r_speed);
     }
 
@@ -654,7 +661,7 @@ void Chassis::TimeUpdate1000Hz()
         ticks_fb.rr_ticks = rearTicksData.rr_ticks;
         ticks_fb.ticks_timestamp = Ticks_TimeStamp;
         Ticks_update = 0;
-        ticks_fb_pub.publish(ticks_fb);
+        ticks_fb_pub->publish(ticks_fb);
 #ifndef ODOM_BY_CHASSIS
         SensorData::Ticks tick_msg(Ticks_TimeStamp, frontTicksData.l_ticks, frontTicksData.r_ticks);
         if (robot::Chassis::m_ge_encoder.add_ticks(tick_msg))
@@ -689,8 +696,16 @@ void Chassis::TimeUpdate1000Hz()
     {
         Odom_update = 0;
 
-        geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(OdomEulerZ.euler_z / RAD_DEGREE_CONVER);
+        double yaw = OdomEulerZ.euler_z / RAD_DEGREE_CONVER;
 
+        tf2::Quaternion quat_tf;
+        quat_tf.setRPY(0, 0, yaw); // Roll and pitch are 0, yaw is set
+
+        geometry_msgs::msg::Quaternion odom_quat;
+        odom_quat.x = quat_tf.x();
+        odom_quat.y = quat_tf.y();
+        odom_quat.z = quat_tf.z();
+        odom_quat.w = quat_tf.w();
         ROS_odom.header.stamp = timestamp2rostime(Odom_TimeStamp);
         ROS_odom.header.frame_id = "odom";
         ROS_odom.pose.pose.position.x = OdomPoseXy.pos_x;
@@ -715,7 +730,7 @@ void Chassis::TimeUpdate1000Hz()
         odom_trans.transform.translation.y = OdomPoseXy.pos_y;
         odom_trans.transform.translation.y = 0;
         odom_trans.transform.rotation = odom_quat;
-        odom_broadcaster.sendTransform(odom_trans);
+        odom_broadcaster->sendTransform(odom_trans);
 
         if ((Odom_TimeStamp - time_pre) > 100000)
         {
@@ -731,7 +746,7 @@ void Chassis::TimeUpdate1000Hz()
             }
         }
         time_pre = Odom_TimeStamp;
-        Odom_pub.publish(ROS_odom);
+        Odom_pub->publish(ROS_odom);
     }
 #endif
     rclcpp::spin(nh_);
@@ -744,16 +759,16 @@ void Chassis::TimeUpdate1Hz()
     bms_fb.bat_vol = get_bat_mvol();
     bms_fb.bat_current = get_bat_mcurrent();
     bms_fb.bat_temp = get_bat_temp();
-    bms_fb_pub.publish(bms_fb);
+    bms_fb_pub->publish(bms_fb);
 
     chassis_ctrl_src_fb.chassis_ctrl_cmd_src = get_ctrl_cmd_src();
-    chassis_ctrl_src_fb_pub.publish(chassis_ctrl_src_fb);
+    chassis_ctrl_src_fb_pub->publish(chassis_ctrl_src_fb);
 
     chassis_mileage_meter_fb.vehicle_meters = get_vehicle_meter();
-    chassis_mileage_meter_fb_pub.publish(chassis_mileage_meter_fb);
+    chassis_mileage_meter_fb_pub->publish(chassis_mileage_meter_fb);
 
     chassis_mode_fb.chassis_mode = get_chassis_mode(); //0: lock_mode, 1:ctrl_mode, 2:push_mode, 3:emergency mode, 4:error mode
-    chassis_mode_fb_pub.publish(chassis_mode_fb);
+    chassis_mode_fb_pub->publish(chassis_mode_fb);
 
     error_code_fb.host_error        = get_err_state(Host);
     error_code_fb.central_error     = get_err_state(Central);
@@ -763,10 +778,10 @@ void Chassis::TimeUpdate1Hz()
     error_code_fb.rear_right_motor_error   = get_err_state(Motor3);
     error_code_fb.bms_error         = get_err_state(BMS);
     error_code_fb.brake_error       = get_err_state(Brake);
-    error_code_fb_pub.publish(error_code_fb);
+    error_code_fb_pub->publish(error_code_fb);
     
     motor_work_mode_fb.motor_work_mode = get_chassis_work_model();
-    motor_work_mode_fb_pub.publish(motor_work_mode_fb);
+    motor_work_mode_fb_pub->publish(motor_work_mode_fb);
 
     rclcpp::spin(nh_);
 }

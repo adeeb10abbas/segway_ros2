@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 
 #include <rclcpp/rclcpp.hpp>
 #include <geometry_msgs/msg/twist.hpp>
@@ -37,7 +36,6 @@
 #include "segway_msgs/srv/ros_stop_chassis_rotate_cmd.hpp"
 #include <rclcpp_action/rclcpp_action.hpp>
 #include "segway_msgs/action/ros_set_iap_cmd.hpp"
-#include "segway_msgs/srv/ros_get_chassis_rotate_switch_cmd.h"
 #include "tf2_ros/transform_broadcaster.h"
 
 #define IAP_STATE_COMPLETE  3

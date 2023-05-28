@@ -37,6 +37,7 @@
 #include "segway_msgs/srv/ros_stop_chassis_rotate_cmd.hpp"
 #include <rclcpp_action/rclcpp_action.hpp>
 #include "segway_msgs/action/ros_set_iap_cmd.hpp"
+#include "segway_msgs/srv/ros_get_chassis_rotate_switch_cmd.h"
 #include "tf2_ros/transform_broadcaster.h"
 
 #define IAP_STATE_COMPLETE  3
@@ -97,9 +98,11 @@ namespace robot
 
             // Add service callbacks and service server declarations here
             // Callbacks
-            bool ros_enable_chassis_rotate_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosEnableChassisRotateCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosEnableChassisRotateCmd::Response> res);
+            bool ros_enable_chassis_rotate_cmd_callback(
+    const std::shared_ptr<segway_msgs::srv::RosEnableChassisRotateCmd::Request>& req, 
+    std::shared_ptr<segway_msgs::srv::RosEnableChassisRotateCmd::Response>& res);
             // bool ros_enable_chassis_rotate_cmd_callback(const segway_msgs::srv::RosEnableChassisRotateCmd::Request req, segway_msgs::srv::RosEnableChassisRotateCmd::Response res);
-            bool ros_get_chassis_rotate_switch_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetChassisRotateSwitchCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetChassisRotateSwitchCmd::Response> res);
+            bool ros_get_chassis_rotate_switch_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetChassisRotateSwitchCmd::Request> req,std::shared_ptr<segway_msgs::srv::RosGetChassisRotateSwitchCmd::Response> res);
             bool ros_clear_chassis_error_code_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosClearChassisErrorCodeCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosClearChassisErrorCodeCmd::Response> res);
             bool ros_get_load_param_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetLoadParamCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetLoadParamCmd::Response> res);
             bool ros_get_chassis_SN_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetChassisSnCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetChassisSnCmd::Response> res);

@@ -204,26 +204,26 @@ void ros_set_iap_cmd_callback(
   // Now you can access the fields from the goal message
   switch (ros_set_iap_cmd_goal->board_index_for_iap) {
     {
-        case 1:
-            // ROS_INFO("iap for central board");
-            iapCentralBoard();
-            break;
-        case 2: 
-            // ROS_INFO("IAP for the front wheel board");
-            iapMotorBoard(motor_front);
-            break;
-        case 3: 
-            // ROS_INFO("IAP for the rear wheel board");
-            iapMotorBoard(motor_rear);
-            break;
-        case 4:
-            // ROS_INFO("IAP for the brake board");
-            iapBrakeBoard();
-            break;
-        case 5:
-            // ROS_INFO("IAP for all board: brake; motor_rear; motor_front; central");
-            checkAndIapAllFw();
-            break;
+        // case 1:
+        //     // ROS_INFO("iap for central board");
+        //     iapCentralBoard();
+        //     break;
+        // case 2: 
+        //     // ROS_INFO("IAP for the front wheel board");
+        //     iapMotorBoard(motor_front);
+        //     break;
+        // case 3: 
+        //     // ROS_INFO("IAP for the rear wheel board");
+        //     iapMotorBoard(motor_rear);
+        //     break;
+        // case 4:
+        //     // ROS_INFO("IAP for the brake board");
+        //     iapBrakeBoard();
+        //     break;
+        // case 5:
+        //     // ROS_INFO("IAP for all board: brake; motor_rear; motor_front; central");
+        //     checkAndIapAllFw();
+        //     break;
         default: 
             // ROS_INFO("ros_set_iap_cmd_goal->board_index_for_iap[%d] value out of the normal rande[1,2,3,4]", ros_set_iap_cmd_goal->board_index_for_iap);
             break;

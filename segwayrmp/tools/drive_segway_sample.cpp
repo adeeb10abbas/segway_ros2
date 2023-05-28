@@ -27,7 +27,7 @@ using goalHandleIapCmd = rclcpp_action::ClientGoalHandle<iapCmd>;
 
 std::shared_ptr<rclcpp::Node> drive_node;
 rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr velocity_pub;
-rclcpp::Subscription<segway_msgs::msg::ErrorCodeFb>::SharedPtr error_sub;
+rclcpp::Subscription<segway_msgs::msg::Errorcodefb>::SharedPtr error_sub;
 
 rclcpp::Client<segway_msgs::srv::RosSetChassisEnableCmd>::SharedPtr enable_client;
 // rclcpp::Client<segway_msgs::srv::ClearChassisScramStatusCmd>::SharedPtr clear_scram_client;
@@ -213,11 +213,11 @@ void drive_chassis_test()
         break;
     case ENABLECMD      : 
         enable_switch = 1;
-        enable_request->ros_set_chassis_enable_cmd = set_enable_cmd;
+        enable_request->ros_setchassis_enable_cmd = set_enable_cmd;
         ++set_enable_cmd;        
         set_enable_cmd %= 2;
         RCLCPP_INFO(rclcpp::get_logger("drive_segway_sample"), 
-                    "enable chassis switch[%d]", enable_request->ros_set_chassis_enable_cmd);
+                    "enable chassis switch[%d]", enable_request->ros_setchassis_enable_cmd);
         printf("current set_line_speed[%lf], set_angular_speed[%lf]\n", set_line_speed, set_angular_speed);
         break;  
     case CHASSISPAUSE   :
@@ -263,7 +263,7 @@ void drive_chassis_test()
         using enableServiceResponseFutrue = rclcpp::Client<segway_msgs::srv::RosSetChassisEnableCmd>::SharedFuture;
         auto enable_response_receive_callback = [](enableServiceResponseFutrue futrue) {
             RCLCPP_INFO(rclcpp::get_logger("drive_segway_sample"), 
-            "event sended successfully, result:%d", futrue.get()->chassis_set_chassis_enable_result);
+            "event sended successfully, result:%d", futrue.get()->chassis_setchassis_enable_result);
         };
         auto enable_future_result = enable_client->async_send_request(enable_request, enable_response_receive_callback);
     }
@@ -291,7 +291,7 @@ void drive_chassis_test()
 
     if (iap_flag & 3) {
         auto goal_msg = iapCmd::Goal();
-        goal_msg.iap_board = iap_flag;
+        // goal_msg.iap_board = iap_flag;
         RCLCPP_INFO(rclcpp::get_logger("drive_segway_sample"), "sending goal, iap cmd goal");
         auto send_goal_options = rclcpp_action::Client<iapCmd>::SendGoalOptions();
         send_goal_options.goal_response_callback = std::bind(&goal_response_callback, std::placeholders::_1);
@@ -301,12 +301,12 @@ void drive_chassis_test()
     }
 }
 
-void get_error_code_callback(const segway_msgs::msg::ErrorCodeFb::SharedPtr msg)
+void get_error_code_callback(const segway_msgs::msg::Errorcodefb::SharedPtr msg)
 {
     if (print_error != 0) {
         RCLCPP_INFO(rclcpp::get_logger("drive_segway_sample"), "host_error[%#x], central_error[%#x], \
         left_motor_error[%#x], right_motor_error[%#x], bms_err[%#x]", 
-        msg->host_error, msg->central_error, msg->left_motor_error, msg->right_motor_error, msg->bms_error);
+        msg->host_error, msg->central_error, msg->rear_left_motor_error, msg->rear_right_motor_error, msg->bms_error);
     }
 }
 
@@ -314,7 +314,7 @@ void get_chassis_event_callback(const std::shared_ptr<segway_msgs::srv::ChassisS
     std::shared_ptr<segway_msgs::srv::ChassisSendEvent::Response> response)
 {
     (void)response;
-    switch (request->chassis_send_event_id)
+    switch (request->chassis_sendevent_id)
     {
     case OnEmergeStopEvent:
         RCLCPP_INFO(rclcpp::get_logger("drive_segway_sample"), "CHASSIS EVENT: The chassis emergency stop button is triggered");
@@ -342,7 +342,7 @@ int main(int argc, char * argv[])
     drive_node = rclcpp::Node::make_shared("drive_segway_sample");
 
     velocity_pub = drive_node->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 1);
-    error_sub = drive_node->create_subscription<segway_msgs::msg::ErrorCodeFb>(
+    error_sub = drive_node->create_subscription<segway_msgs::msg::Errorcodefb>(
         "error_code_fb", 1, std::bind(&get_error_code_callback, std::placeholders::_1));
 
     enable_client = drive_node->create_client<segway_msgs::srv::RosSetChassisEnableCmd>("set_chassis_enable");

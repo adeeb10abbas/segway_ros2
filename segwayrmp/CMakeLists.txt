@@ -34,6 +34,7 @@ find_package(rclcpp_components REQUIRED)
 add_executable(SmartCar
   src/SmartCar.cpp 
   src/robot.cpp 
+  src/Ge_encoder_odometry.cpp
 )
 target_include_directories(SmartCar PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

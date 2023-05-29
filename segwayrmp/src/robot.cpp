@@ -324,6 +324,7 @@ Chassis::Chassis(const rclcpp::Node::SharedPtr nh) : nh_(nh)
     std::bind(&Chassis::handle_iapCmdCancel, this, std::placeholders::_1),
     std::bind(&Chassis::handle_iapCmdAccepted, this, std::placeholders::_1));
 
+
     auto update_duration_1000Hz = std::chrono::duration<double>(0.001);
     auto update_duration_1Hz = std::chrono::duration<double>(1);
 
@@ -333,7 +334,7 @@ Chassis::Chassis(const rclcpp::Node::SharedPtr nh) : nh_(nh)
 
     rclcpp::spin(nh_);
 
-    }
+}
 
 /* code */
 void Chassis::cmd_vel_callback(const geometry_msgs::msg::Twist::SharedPtr cmd_input)

@@ -135,7 +135,7 @@ namespace robot
                 return rclcpp_action::CancelResponse::ACCEPT;
             }
 
-            void handle_iapCmdAccepted(const std::shared_ptr<goalHandaleIapCmd> goal_handle)
+            handle_iapCmdAccepted(const std::shared_ptr<goalHandaleIapCmd> goal_handle)
             {
                 using namespace std::placeholders;
                 (void)goal_handle;

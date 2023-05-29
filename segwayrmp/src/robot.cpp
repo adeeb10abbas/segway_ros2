@@ -326,7 +326,7 @@ Chassis::Chassis(const rclcpp::Node::SharedPtr nh) : nh_(nh)
             using namespace std::placeholders;
             (void)goal_handle;
             std::thread([this](const std::shared_ptr<rclcpp_action::ServerGoalHandle<segway_msgs::action::RosSetIapCmd>>& gh) {
-                iapCmdExecute(gh);
+                ros_set_iap_cmd_callback(gh);
             }, goal_handle).detach();
         }
     );

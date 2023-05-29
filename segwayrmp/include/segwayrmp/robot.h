@@ -117,9 +117,7 @@ namespace robot
             bool ros_set_cfg_rotate_function_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosSetCfgRotateFunctionCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosSetCfgRotateFunctionCmd::Response> res);
             bool ros_get_host_and_chassis_match_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetHostAndChassisMatchCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetHostAndChassisMatchCmd::Response> res);
             rclcpp_action::Server<iapCmd>::SharedPtr iap_action_server;
-            void iapCmdExecute(const std::shared_ptr<goalHandaleIapCmd> goal_handle) {
-                //
-            }
+
             rclcpp_action::GoalResponse handle_iapCmdGoal(
                 const rclcpp_action::GoalUUID & uuid,
                 std::shared_ptr<const iapCmd::Goal> goal)

@@ -41,8 +41,6 @@
 #define IAP_STATE_COMPLETE  3
 #define IAP_STATE_FAIL      4
 #define IAP_STATE_ABORT     5
-// using iapActionServer = rclcpp_action::Server<segway_msgs::action::RosSetIapCmd>;
-// using iapActionClient = rclcpp_action::Client<segway_msgs::action::RosSetIapCmd>;
 
 namespace robot
 {

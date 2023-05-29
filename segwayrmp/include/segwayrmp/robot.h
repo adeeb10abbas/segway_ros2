@@ -116,8 +116,10 @@ namespace robot
             bool ros_get_rotate_function_cfg_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetRotateFunctionCfgCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetRotateFunctionCfgCmd::Response> res);
             bool ros_set_cfg_rotate_function_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosSetCfgRotateFunctionCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosSetCfgRotateFunctionCmd::Response> res);
             bool ros_get_host_and_chassis_match_cmd_callback(const std::shared_ptr<segway_msgs::srv::RosGetHostAndChassisMatchCmd::Request> req, std::shared_ptr<segway_msgs::srv::RosGetHostAndChassisMatchCmd::Response> res);
-
-            void iapCmdExecute(const std::shared_ptr<goalHandaleIapCmd> goal_handle);
+            rclcpp_action::Server<iapCmd>::SharedPtr iap_action_server;
+            void iapCmdExecute(const std::shared_ptr<goalHandaleIapCmd> goal_handle) {
+                //
+            }
             rclcpp_action::GoalResponse handle_iapCmdGoal(
                 const rclcpp_action::GoalUUID & uuid,
                 std::shared_ptr<const iapCmd::Goal> goal)
@@ -135,12 +137,7 @@ namespace robot
                 return rclcpp_action::CancelResponse::ACCEPT;
             }
 
-            handle_iapCmdAccepted(const std::shared_ptr<goalHandaleIapCmd> goal_handle)
-            {
-                using namespace std::placeholders;
-                (void)goal_handle;
-                std::thread{std::bind(&Chassis::iapCmdExecute, this, _1), goal_handle}.detach();
-            }
+            void handle_iapCmdAccepted(const std::shared_ptr<goalHandaleIapCmd> goal_handle);
             rclcpp::Service<segway_msgs::srv::RosEnableChassisRotateCmd>::SharedPtr ros_enable_chassis_rotate_cmd_srv_server;
             rclcpp::Service<segway_msgs::srv::RosGetChassisRotateSwitchCmd>::SharedPtr ros_get_chassis_rotate_switch_cmd_srv_server;
             rclcpp::Service<segway_msgs::srv::RosClearChassisErrorCodeCmd>::SharedPtr ros_clear_chassis_error_code_cmd_srv_server;

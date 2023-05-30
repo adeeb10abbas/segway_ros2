@@ -51,7 +51,7 @@ ament_target_dependencies(SmartCar
   "rclcpp" "std_msgs" "nav_msgs" "sensor_msgs" "geometry_msgs" "segway_msgs" "tf2" "tf2_ros"
 ) 
 target_link_libraries(SmartCar
-  ${PROJECT_SOURCE_DIR}/lib/libctrl_x86_64.so
+  ${PROJECT_SOURCE_DIR}/lib/libctrl_arm64-v8a.so
 )
 
 add_executable(drive_segway_sample
